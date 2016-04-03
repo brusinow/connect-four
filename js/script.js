@@ -22,14 +22,14 @@ var blackMove = '<div class="circle-black"></div>';
 
 $('#column-one-button').click(function(){
     var x = 0;
-  console.log("column one click");
+ 
   whichColumn(x);
   count++;
 });
 
 $('#column-two-button').click(function(){
     var x = 1;
-  console.log("column two click");
+ 
   whichColumn(x);
   count++;
 });
@@ -37,35 +37,35 @@ $('#column-two-button').click(function(){
 
 $('#column-three-button').click(function(){
     var x = 2;
-  console.log("column one click");
+
   whichColumn(x);
   count++;
 });
 
 $('#column-four-button').click(function(){
     var x = 3;
-  console.log("column one click");
+
   whichColumn(x);
   count++;
 });
 
 $('#column-five-button').click(function(){
     var x = 4;
-  console.log("column one click");
+ 
   whichColumn(x);
   count++;
 });
 
 $('#column-six-button').click(function(){
     var x = 5;
-  console.log("column one click");
+ 
   whichColumn(x);
   count++;
 });
 
 $('#column-seven-button').click(function(){
     var x = 6;
-  console.log("column one click");
+ 
   whichColumn(x);
   count++;
 });
@@ -99,7 +99,7 @@ $('#column-seven-button').click(function(){
 
 
 
-var whoseTurn = function(){ 
+var whoseTurn = function(count){ 
     if (count % 2 === 0){
     console.log('whoseTurn returns red move');
     return "R";
@@ -162,21 +162,23 @@ var whichColumn = function(x){
     var y = 5;
   do {
       var dimensionChange = (7*y) + x;
-      console.log("y at top is "+ y)
-    if (currentScore[y][x] === "" && whoseTurn()==="R"){
+      
+    if (currentScore[y][x] === "" && whoseTurn(count)==="R"){
+      var redPlayer = "R";
       board[dimensionChange].className = 'eachCircle circle-red';
       currentScore[y].splice(x, 1, 'R');
       console.log(currentScore);
       console.log('red');
-      getWinner(y,x);
+      getWinner(y,x,redPlayer);
       return true;
-    } else if (currentScore[y][x] === "" && whoseTurn()==="B"){
+    } else if (currentScore[y][x] === "" && whoseTurn(count)==="B"){
+      var blackPlayer = "B";
       board[dimensionChange].className = 'eachCircle circle-black';
       currentScore[y].splice(x, 1, 'B');
      
       console.log(currentScore);
       console.log('black');
-      getWinner(y,x);
+      getWinner(y,x,blackPlayer);
       return false
       } else {
         y--;
@@ -190,44 +192,56 @@ var whichColumn = function(x){
 
 
 
-function getWinner(lastPieceY, lastPieceX) {
-   // check length in each direction
-    var needFour = 1, 
+function getWinner(lastPieceY, lastPieceX, player) {
+   
+  var needFour = 1, 
      i = 1;
    // across
-   while(currentScore[lastPieceY][lastPieceX - i] === whoseTurn() && (lastPieceX - i) >= 0 ) { 
-      needFour++; i++; 
+    while(currentScore[lastPieceY][lastPieceX - i] === player && (lastPieceX - i) >= 0 ) { 
+      needFour++; 
+      i++; 
       console.log('while loop 1');
-  };
+    };
       i = 1;
 
-   while(currentScore[lastPieceY][lastPieceX + i] === whoseTurn() && (lastPieceX + i) <= 7) {
-    needFour++; i++; 
+    while(currentScore[lastPieceY][lastPieceX + i] === player && (lastPieceX + i) <= 7) {
+      needFour++; 
+      i++; 
       console.log('while loop 2');
-  };
+    };
 
-   if (needFour >= 4) { 
-    console.log("win horizontal");
-    return true; 
-  }
+      if (needFour >= 4) { 
+      console.log("win horizontal");
+      return true; 
+      }
 
-  //  // left to right
-  //  needFour = 1;
-  //  while( (currentScore[ lastPiece.x - i][ lastPiece.y ] === whoseTurn) && ((lastPiece.x - i) >= 0) ) { l += 1; i += 1; };
-  //  i = 1;
-  //  while( (currentScore[ lastPiece.x + i][ lastPiece.y ] === whoseTurn) && ((lastPiece.x + i) <= 5) ) { l += 1; i += 1; };
-  //  if ( l >= 4 ) { 
-  //   console.log("win horizontal");
-  //   return true; 
-  // }
 
-   // same for top left to bottom right and bottom left to top right
-   // . . .
 
-   // if we got no hit until here, there is no row of 4
+
+      needFour = 1; 
+    // down
+    while(currentScore[lastPieceY-i][lastPieceX] === player && (lastPieceY - i) >= 0 ) { 
+      needFour++; 
+      i++; 
+      console.log('while loop 1');
+    };
+      i = 1;
+
+    while(currentScore[lastPieceY+i][lastPieceX] === player && (lastPieceY + i) <= 7) {
+      needFour++; 
+      i++; 
+      console.log('while loop 2');
+    };
+
+      if (needFour >= 4) { 
+      console.log("win vertical");
+      return true; 
+      }
+
+
+
    console.log("no winner yet");
    console.log("needFour is now "+needFour)
-   count++;
    return false;
 }
 
