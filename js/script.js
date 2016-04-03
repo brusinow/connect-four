@@ -8,7 +8,12 @@ var currentScore =  [ ["","","","","","",""],
 
 var board = $("div.eachCircle");
 var keepPlaying = true;
+
 var count = 0;
+
+
+
+
 var noMove = '<div class="circle-clear"></div>';
 var redMove = '<div class="circle-red"></div>';
 var blackMove = '<div class="circle-black"></div>';
@@ -18,15 +23,15 @@ var blackMove = '<div class="circle-black"></div>';
 $('#column-one-button').click(function(){
     var x = 0;
   console.log("column one click");
-  whoseTurn(count);
   whichColumn(x);
-  // getWinner();
+  count++;
 });
 
 $('#column-two-button').click(function(){
     var x = 1;
   console.log("column two click");
   whichColumn(x);
+  count++;
 });
 
 
@@ -34,30 +39,35 @@ $('#column-three-button').click(function(){
     var x = 2;
   console.log("column one click");
   whichColumn(x);
+  count++;
 });
 
 $('#column-four-button').click(function(){
     var x = 3;
   console.log("column one click");
   whichColumn(x);
+  count++;
 });
 
 $('#column-five-button').click(function(){
     var x = 4;
   console.log("column one click");
   whichColumn(x);
+  count++;
 });
 
 $('#column-six-button').click(function(){
     var x = 5;
   console.log("column one click");
   whichColumn(x);
+  count++;
 });
 
 $('#column-seven-button').click(function(){
     var x = 6;
   console.log("column one click");
   whichColumn(x);
+  count++;
 });
 
 // var countItemsTruthy = function(currentScore){
@@ -89,15 +99,13 @@ $('#column-seven-button').click(function(){
 
 
 
-var whoseTurn = function(count){ 
-  if (count % 2 === 0){
-    var currentTurn = "R";
+var whoseTurn = function(){ 
+    if (count % 2 === 0){
     console.log('whoseTurn returns red move');
-    return currentTurn;
-  } else {
-    var currentTurn = "B";
+    return true;
+  } else { 
     console.log('whoseTurn returns black move'); 
-    return currentTurn; 
+    return false; 
     }
 }
 
@@ -148,7 +156,7 @@ var whichColumn = function(x){
   do {
       var dimensionChange = (7*y) + x;
       console.log("y at top is "+ y)
-    if (currentScore[y][x] === "" && whoseTurn()==="R"){
+    if (currentScore[y][x] === "" && whoseTurn()){
       board[dimensionChange].className = 'eachCircle circle-red';
       currentScore[y].splice(x, 1, 'R');
       var lastPieceY = y;
@@ -156,9 +164,8 @@ var whichColumn = function(x){
       console.log(lastPieceY, lastPieceX);
       console.log(currentScore);
       console.log('red');
-
-      return lastPieceY, lastPieceX, currentTurn;
-    } else if (currentScore[y][x] === "" && whoseTurn()==="B"){
+      return true;
+    } else if (currentScore[y][x] === "" && !whoseTurn()){
       board[dimensionChange].className = 'eachCircle circle-black';
       currentScore[y].splice(x, 1, 'B');
       var lastPieceY = y;
@@ -166,11 +173,10 @@ var whichColumn = function(x){
       console.log(lastPieceY, lastPieceX);
       console.log(currentScore);
       console.log('black');
-      return lastPieceY, lastPieceX, currentTurn;
+      return false
       } else {
         y--;
         console.log("didn't hit");
-        console.log("current turn is "+ currentTurn)
         console.log(y + " at bottom");
         }
       // console.log("x is "+ x);
