@@ -185,32 +185,62 @@ function displayWinner(winArray){
     console.log("make an x");
   }
 }
+// start: function(event, ui){
+//            $("#highlightPiece").hide(); 
+//           }
+
+
+
+ // revert : function(event, ui) {
+              
+ //              $(this).data("uiDraggable").originalPosition = {
+ //                  top : 12,
+ //                  left : 13
+ //              },
+ //              return !event;
+          
+ //          }
+
+
+
+
 
 
 $(function() {
     $("#dropPiece").draggable({
-        
-          revert : function(event, ui) {
-             
-              $(this).data("uiDraggable").originalPosition = {
-                  top : 150,
-                  left : 100
-              };
-              
-              return !event;
-          
-          }
+            drag: function (event, ui) {
+               $("#highlightPiece").css({"border":"0px solid white"});
+               $("#arrow").removeClass( "imageflash" );
+               console.log( "dragging" );
+               }, 
+               revert : function(event, ui) {
+            // on older version of jQuery use "draggable"
+            // $(this).data("draggable")
+            // on 2.x versions of jQuery use "ui-draggable"
+            // $(this).data("ui-draggable")
+            $(this).data("uiDraggable").originalPosition = {
+                top : 160,
+                left : 147
+            };
+            // return boolean
+            return !event;
+            // that evaluate like this:
+            // return event !== false ? false : true;
+        }
+         
     });
     $('#1-drop').droppable({
         tolerance: "pointer",
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'150px','left':'100px'});
+                $('#dropPiece').css({'top':'160px','left':'147px'});
                 console.log("dropped");
                 var x = 0;
                 whichColumn(x);
                 count++;
+                $("#arrow").addClass( "imageflash" );
+                $("#highlightPiece").css({"border":"8px solid black"}); 
                 whoseTurn(count);
 
         }
@@ -220,11 +250,13 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'150px','left':'100px'});
+                $('#dropPiece').css({'top':'160px','left':'147px'});
                 console.log("dropped");
                 var x = 1;
                 whichColumn(x);
                 count++;
+                $("#arrow").addClass( "imageflash" );
+                $("#highlightPiece").css({"border":"8px solid black"}); 
                 whoseTurn(count);
             }
     });
@@ -233,11 +265,13 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'150px','left':'100px'});
+                $('#dropPiece').css({'top':'160px','left':'147px'});
                 console.log("dropped");
                 var x = 2;
                 whichColumn(x);
                 count++;
+                $("#arrow").addClass( "imageflash" );
+                $("#highlightPiece").css({"border":"8px solid black"}); 
                 whoseTurn(count);
             }    
     });
@@ -246,11 +280,13 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'150px','left':'100px'});
+                $('#dropPiece').css({'top':'160px','left':'147px'});
                 console.log("dropped");
                 var x = 3;
                 whichColumn(x);
                 count++;
+                $("#arrow").addClass( "imageflash" );
+                $("#highlightPiece").css({"border":"8px solid black"}); 
                 whoseTurn(count);
             }    
     });
@@ -259,11 +295,13 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'150px','left':'100px'});
+                $('#dropPiece').css({'top':'160px','left':'147px'});
                 console.log("dropped");
                 var x = 4;
                 whichColumn(x);
                 count++;
+                $("#arrow").addClass( "imageflash" );
+                $("#highlightPiece").css({"border":"8px solid black"}); 
                 whoseTurn(count);
             }    
     });
@@ -272,11 +310,13 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'150px','left':'100px'});
+                $('#dropPiece').css({'top':'160px','left':'147px'});
                 console.log("dropped");
                 var x = 5;
                 whichColumn(x);
                 count++;
+                $("#arrow").addClass( "imageflash" );
+                $("#highlightPiece").css({"border":"8px solid black"}); 
                 whoseTurn(count);
             }    
     });
@@ -285,11 +325,13 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'150px','left':'100px'});
+                $('#dropPiece').css({'top':'160px','left':'147px'});
                 console.log("dropped");
                 var x = 6;
                 whichColumn(x);
                 count++;
+                $("#arrow").addClass( "imageflash" );
+                $("#highlightPiece").css({"border":"8px solid black"}); 
                 whoseTurn(count);
       }
 

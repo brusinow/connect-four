@@ -87,23 +87,17 @@ input,select{vertical-align:middle}
 
 }
 
-/*.highlightPiece {
+#highlightPiece {
+  position: absolute;
+  top: 150px;
+  left: 100px;
   width: 120px;
   height: 120px;
   background-color: white;
   border: 8px solid black;
   border-radius: 100px;
 
-}*/
-
-/*#highlightRed {
-  position: absolute;
-
-  top:150px;
-  left:100px;
-}*/
-
-
+}
 
 
 
@@ -115,10 +109,16 @@ input,select{vertical-align:middle}
   border: 15px solid #ff3300;
   border-radius: 85px;
   box-shadow: inset 0px 0px 10px #333333;
-  top: 150px;
-  left: 100px;
+  top: 160px;
+  left: 147px;
 }
 
+#arrow{
+  position: absolute;
+  top: 20px;
+  left: 180px;
+  width:150px;
+}
 /*#draggable {
  width: 100px; 
  height: 100px; 
@@ -147,6 +147,38 @@ input,select{vertical-align:middle}
   height: 102px;
   float: left;
 }
+
+
+.borderflash {
+  -moz-animation: borderflash 1s ease-out;
+  -moz-animation-iteration-count: 1000;
+
+  -webkit-animation: borderflash 1s ease-out;
+  -webkit-animation-iteration-count: 1000;
+
+  -ms-animation: borderflash 1s ease-out;
+  -ms-animation-iteration-count: 1000;
+}
+
+@-webkit-keyframes borderflash {
+    0% { border-color: none; background-color: none; }
+    50% { border-color: #ffffff; background-color: #ffffff; }
+    100% { border-color: none; background-color: none; }
+}
+
+@-moz-keyframes borderflash {
+    0% { border-color: none; background-color: none; }
+    50% { border-color: #ffffff; background-color: #ffffff; }
+    100% { border-color: none; background-color: none; }
+}
+
+@-ms-keyframes borderflash {
+    0% { border-color: none; background-color: none; }
+    50% { border-color: #ffffff; background-color: #ffffff; }
+    100% { border-color: none; background-color: none; }
+}
+
+
 
 .flash {
   -moz-animation: flash 2s ease-out;
@@ -177,6 +209,32 @@ input,select{vertical-align:middle}
     100% { background-color: none; }
 }
 
+.imageflash {
+  -moz-animation: imageflash 1s ease-out;
+  -moz-animation-iteration-count: 1000;
 
+  -webkit-animation: imageflash 1s ease-out;
+  -webkit-animation-iteration-count: 1000;
 
+  -ms-animation: imageflash 1s ease-out;
+  -ms-animation-iteration-count: 1000;
+}
+
+@-webkit-keyframes imageflash {
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-moz-keyframes imageflash {
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-ms-keyframes imageflash {
+     0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
 
