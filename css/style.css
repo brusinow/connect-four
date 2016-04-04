@@ -60,6 +60,9 @@ input,select{vertical-align:middle}
   border: 1px solid black;
   border-radius: 50px;
   box-shadow: inset 1px -3px 3px #661400;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
 
 }
 
@@ -73,6 +76,9 @@ input,select{vertical-align:middle}
   border: 1px solid black;
   border-radius: 50px;
   box-shadow: inset 1px -3px 3px #333333;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
 
 }
 
@@ -96,7 +102,34 @@ input,select{vertical-align:middle}
 }
 
 
+.flash {
+  -moz-animation: flash 2s ease-out;
+  -moz-animation-iteration-count: 10;
 
+  -webkit-animation: flash 2s ease-out;
+  -webkit-animation-iteration-count: 10;
+
+  -ms-animation: flash 2s ease-out;
+  -ms-animation-iteration-count: 10;
+}
+
+@-webkit-keyframes flash {
+    0% { background-color: none; }
+    50% { background-color: #fbf8b2; }
+    100% { background-color: none; }
+}
+
+@-moz-keyframes flash {
+    0% { background-color: none; }
+    50% { background-color: #fbf8b2; }
+    100% { background-color: none; }
+}
+
+@-ms-keyframes flash {
+    0% { background-color: none; }
+    50% { background-color: #fbf8b2; }
+    100% { background-color: none; }
+}
 
 
 
