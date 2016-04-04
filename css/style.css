@@ -31,11 +31,16 @@ input,select{vertical-align:middle}
 }
 
 #main-box {
+  position: relative;
   width: 714px;
   height: 610px;
-  border: 1px solid black;
+  border: 3px solid black;
   margin: 0 auto;
   
+}
+
+.clearFloat {
+  float: none;
 }
 
 .circle-clear {
@@ -82,8 +87,39 @@ input,select{vertical-align:middle}
 
 }
 
+/*.highlightPiece {
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  border: 8px solid black;
+  border-radius: 100px;
 
-#draggable {
+}*/
+
+/*#highlightRed {
+  position: absolute;
+
+  top:150px;
+  left:100px;
+}*/
+
+
+
+
+
+#dropPiece{
+  position: absolute;
+  background-color: #ff3300;
+  height: 65px;
+  width: 65px;
+  border: 15px solid #ff3300;
+  border-radius: 85px;
+  box-shadow: inset 0px 0px 10px #333333;
+  top: 150px;
+  left: 100px;
+}
+
+/*#draggable {
  width: 100px; 
  height: 100px; 
  padding: 0.5em; 
@@ -99,8 +135,18 @@ input,select{vertical-align:middle}
   padding: 0.5em; 
   float: left; 
   margin: 10px; 
+}*/
+
+.drop-area{
+  margin: 0 auto;
+  width: 714px;
 }
 
+.droppable {
+  width: 102px;
+  height: 102px;
+  float: left;
+}
 
 .flash {
   -moz-animation: flash 2s ease-out;

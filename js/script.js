@@ -16,56 +16,13 @@ var redMove = '<div class="circle-red"></div>';
 var blackMove = '<div class="circle-black"></div>';
 
 
-
-$('#column-one-button').click(function(){
-    var x = 0;
-  whichColumn(x);
-  count++;
-});
-
-$('#column-two-button').click(function(){
-    var x = 1;
-  whichColumn(x);
-  count++;
-});
-
-
-$('#column-three-button').click(function(){
-    var x = 2;
-  whichColumn(x);
-  count++;
-});
-
-$('#column-four-button').click(function(){
-    var x = 3;
-  whichColumn(x);
-  count++;
-});
-
-$('#column-five-button').click(function(){
-    var x = 4;
-  whichColumn(x);
-  count++;
-});
-
-$('#column-six-button').click(function(){
-    var x = 5;
-  whichColumn(x);
-  count++;
-});
-
-$('#column-seven-button').click(function(){
-    var x = 6;
-  whichColumn(x);
-  count++;
-});
-
-
 function whoseTurn(count){ 
     if (count % 2 === 0){
     console.log('whoseTurn returns red move');
+    $("#dropPiece").css({"background-color": "#ff3300", "border": "15px solid #ff3300", "box-shadow": "inset 0px 0px 10px #333333"});
     return "R";
     } else { 
+    $("#dropPiece").css({"background-color": "#000000", "border": "15px solid #000000", "box-shadow": "inset 0px 0px 10px #777777"}); 
     console.log('whoseTurn returns black move'); 
     return "B"; 
     }
@@ -126,6 +83,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       console.log("win horizontal");
       displayWinner(winArray);
       keepPlaying = false;
+      $("#dropPiece").draggable('disable');
       return true; 
       }
 
@@ -153,6 +111,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       console.log("win vertical");
       displayWinner(winArray);
       keepPlaying = false;
+      $("#dropPiece").draggable('disable');
       return true; 
       }
 
@@ -181,6 +140,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       console.log("win diag descending");
       displayWinner(winArray);
       keepPlaying = false;
+      $("#dropPiece").draggable('disable');
       return true; 
       }
 
@@ -208,6 +168,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       console.log("win diag ascending");
       displayWinner(winArray);
       keepPlaying = false;
+      $("#dropPiece").draggable('disable');
       return true; 
       }
 
@@ -226,6 +187,125 @@ function displayWinner(winArray){
 }
 
 
+$(function() {
+    $("#dropPiece").draggable({
+        
+          revert : function(event, ui) {
+             
+              $(this).data("uiDraggable").originalPosition = {
+                  top : 150,
+                  left : 100
+              };
+              
+              return !event;
+          
+          }
+    });
+    $('#1-drop').droppable({
+        tolerance: "pointer",
+        activeClass: "active",
+        hoverClass:  "hover",
+            drop: function( event, ui ) {
+                $('#dropPiece').css({'top':'150px','left':'100px'});
+                console.log("dropped");
+                var x = 0;
+                whichColumn(x);
+                count++;
+                whoseTurn(count);
+
+        }
+    });
+    $("#2-drop").droppable({
+       tolerance: "pointer",
+        activeClass: "active",
+        hoverClass:  "hover",
+            drop: function( event, ui ) {
+                $('#dropPiece').css({'top':'150px','left':'100px'});
+                console.log("dropped");
+                var x = 1;
+                whichColumn(x);
+                count++;
+                whoseTurn(count);
+            }
+    });
+    $("#3-drop").droppable({
+       tolerance: "pointer",
+        activeClass: "active",
+        hoverClass:  "hover",
+            drop: function( event, ui ) {
+                $('#dropPiece').css({'top':'150px','left':'100px'});
+                console.log("dropped");
+                var x = 2;
+                whichColumn(x);
+                count++;
+                whoseTurn(count);
+            }    
+    });
+    $("#4-drop").droppable({
+       tolerance: "pointer",
+        activeClass: "active",
+        hoverClass:  "hover",
+            drop: function( event, ui ) {
+                $('#dropPiece').css({'top':'150px','left':'100px'});
+                console.log("dropped");
+                var x = 3;
+                whichColumn(x);
+                count++;
+                whoseTurn(count);
+            }    
+    });
+    $("#5-drop").droppable({
+       tolerance: "pointer",
+        activeClass: "active",
+        hoverClass:  "hover",
+            drop: function( event, ui ) {
+                $('#dropPiece').css({'top':'150px','left':'100px'});
+                console.log("dropped");
+                var x = 4;
+                whichColumn(x);
+                count++;
+                whoseTurn(count);
+            }    
+    });
+    $("#6-drop").droppable({
+       tolerance: "pointer",
+        activeClass: "active",
+        hoverClass:  "hover",
+            drop: function( event, ui ) {
+                $('#dropPiece').css({'top':'150px','left':'100px'});
+                console.log("dropped");
+                var x = 5;
+                whichColumn(x);
+                count++;
+                whoseTurn(count);
+            }    
+    });
+    $("#7-drop").droppable({
+       tolerance: "pointer",
+        activeClass: "active",
+        hoverClass:  "hover",
+            drop: function( event, ui ) {
+                $('#dropPiece').css({'top':'150px','left':'100px'});
+                console.log("dropped");
+                var x = 6;
+                whichColumn(x);
+                count++;
+                whoseTurn(count);
+      }
+
+    });
+});
+
+
+
+
+
+
+
+
+
+
+     
 
 
 
