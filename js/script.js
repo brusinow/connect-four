@@ -197,40 +197,39 @@ function getWinner(lastPieceY, lastPieceX, player) {
   var needFour = 1, 
      i = 1;
    // // across
-   //  while(currentScore[lastPieceY][lastPieceX - i] === player && (lastPieceX - i) >= 0 ) { 
-   //    needFour++; 
-   //    i++; 
-   //    console.log('while loop 1');
-   //  };
-   //    i = 1;
+    while(currentScore[lastPieceY][lastPieceX - i] === player && (lastPieceX - i) >= 0 ) { 
+      needFour++; 
+      i++; 
+      console.log('horiz loop 1');
+    };
+      i = 1;
 
-   //  while(currentScore[lastPieceY][lastPieceX + i] === player && (lastPieceX + i) <= 6) {
-   //    needFour++; 
-   //    i++; 
-   //    console.log('while loop 2');
-   //  };
+    while(currentScore[lastPieceY][lastPieceX + i] === player && (lastPieceX + i) <= 6) {
+      needFour++; 
+      i++; 
+      console.log('horiz loop 2');
+    };
 
-   //    if (needFour >= 4) { 
-   //    console.log("win horizontal");
-   //    return true; 
-   //    }
+      if (needFour >= 4) { 
+      console.log("win horizontal");
+      return true; 
+      }
 
 
     //down
-      // needFour = 1;
+      needFour = 1;
 
     while(((lastPieceY - i) >= 0)  && (currentScore[lastPieceY-i][lastPieceX] === player)) { 
       needFour++; 
       i++; 
-      console.log('while loop 1');
+      console.log('vert loop 1');
     };
       i = 1;
     
-    // PROBLEMS
     while(((lastPieceY + i) <= 5) && (currentScore[lastPieceY+i][lastPieceX] === player)) {
       needFour++; 
       i++; 
-      console.log('while loop 2');
+      console.log('vert loop 2');
     };
 
       if (needFour >= 4) { 
@@ -240,48 +239,48 @@ function getWinner(lastPieceY, lastPieceX, player) {
 
 //------------------------------>
 // diagonal descending
-//     needFour = 1;
+    needFour = 1;
 
-//     while((currentScore[lastPieceY-i][lastPieceX-i] === player) && (lastPieceY - i) >= 0 && (lastPieceX - i) >= 0 ) { 
-//       needFour++; 
-//       i++; 
-//       console.log('while loop 1');
-//     };
-//       i = 1;
+    while((lastPieceY - i) >= 0 && (lastPieceX - i) >= 0  &&  currentScore[lastPieceY-i][lastPieceX-i] === player ) { 
+      needFour++; 
+      i++; 
+      console.log('while loop 1');
+    };
+      i = 1;
     
 
-//     while((currentScore[lastPieceY+i][lastPieceX+i] === player) && (lastPieceY + i) <= 5 && (lastPieceX + i) <= 6 ) {
-//       needFour++; 
-//       i++; 
-//       console.log('while loop 2');
-//     };
+    while((lastPieceY + i) <= 5 && (lastPieceX + i) <= 6  && currentScore[lastPieceY+i][lastPieceX+i] === player ) {
+      needFour++; 
+      i++; 
+      console.log('while loop 2');
+    };
 
-//       if (needFour >= 4) { 
-//       console.log("win diag descending");
-//       return true; 
-//       }
+      if (needFour >= 4) { 
+      console.log("win diag descending");
+      return true; 
+      }
 
-// // diagonal ascending
-//     needFour = 1;
+// diagonal ascending
+    needFour = 1;
 
-//     while((currentScore[lastPieceY+i][lastPieceX-i] === player) && (lastPieceY+i) <= 5 && (lastPieceX - i) >= 0 ) { 
-//       needFour++; 
-//       i++; 
-//       console.log('while loop 1');
-//     };
-//       i = 1;
+    while((lastPieceY + i) <= 5 && (lastPieceX - i) >= 0  &&  currentScore[lastPieceY+i][lastPieceX-i] === player ) { 
+      needFour++; 
+      i++; 
+      console.log('while loop 1');
+    };
+      i = 1;
     
 
-//     while((currentScore[lastPieceY-i][lastPieceX+i] === player) && (lastPieceY - i) >=0 && (lastPieceX + i) <= 6 ) {
-//       needFour++; 
-//       i++; 
-//       console.log('while loop 2');
-//     };
+    while((lastPieceY - i) >= 0 && (lastPieceX + i) <= 6  && currentScore[lastPieceY-i][lastPieceX+i] === player ) {
+      needFour++; 
+      i++; 
+      console.log('while loop 2');
+    };
 
-//       if (needFour >= 4) { 
-//       console.log("win diag ascending");
-//       return true; 
-//       }
+      if (needFour >= 4) { 
+      console.log("win diag ascending");
+      return true; 
+      }
 
 
 
