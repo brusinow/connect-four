@@ -182,12 +182,12 @@ var whichColumn = function(x){
       return false
       } else {
         y--;
-        console.log("didn't hit");
+        console.log("something there");
         console.log(y + " at bottom");
         }
       // console.log("x is "+ x);
   }
-  while(y > 0);
+  while(y >= 0);
 }
 
 
@@ -196,38 +196,38 @@ function getWinner(lastPieceY, lastPieceX, player) {
    
   var needFour = 1, 
      i = 1;
-   // across
-    while(currentScore[lastPieceY][lastPieceX - i] === player && (lastPieceX - i) >= 0 ) { 
+   // // across
+   //  while(currentScore[lastPieceY][lastPieceX - i] === player && (lastPieceX - i) >= 0 ) { 
+   //    needFour++; 
+   //    i++; 
+   //    console.log('while loop 1');
+   //  };
+   //    i = 1;
+
+   //  while(currentScore[lastPieceY][lastPieceX + i] === player && (lastPieceX + i) <= 6) {
+   //    needFour++; 
+   //    i++; 
+   //    console.log('while loop 2');
+   //  };
+
+   //    if (needFour >= 4) { 
+   //    console.log("win horizontal");
+   //    return true; 
+   //    }
+
+
+    //down
+      // needFour = 1;
+
+    while(((lastPieceY - i) >= 0)  && (currentScore[lastPieceY-i][lastPieceX] === player)) { 
       needFour++; 
       i++; 
       console.log('while loop 1');
     };
       i = 1;
-
-    while(currentScore[lastPieceY][lastPieceX + i] === player && (lastPieceX + i) <= 7) {
-      needFour++; 
-      i++; 
-      console.log('while loop 2');
-    };
-
-      if (needFour >= 4) { 
-      console.log("win horizontal");
-      return true; 
-      }
-
-
-
-
-      needFour = 1; 
-    // down
-    while(currentScore[lastPieceY-i][lastPieceX] === player && (lastPieceY - i) >= 0 ) { 
-      needFour++; 
-      i++; 
-      console.log('while loop 1');
-    };
-      i = 1;
-
-    while(currentScore[lastPieceY+i][lastPieceX] === player && (lastPieceY + i) <= 7) {
+    
+    // PROBLEMS
+    while(((lastPieceY + i) <= 5) && (currentScore[lastPieceY+i][lastPieceX] === player)) {
       needFour++; 
       i++; 
       console.log('while loop 2');
@@ -237,6 +237,57 @@ function getWinner(lastPieceY, lastPieceX, player) {
       console.log("win vertical");
       return true; 
       }
+
+//------------------------------>
+// diagonal descending
+//     needFour = 1;
+
+//     while((currentScore[lastPieceY-i][lastPieceX-i] === player) && (lastPieceY - i) >= 0 && (lastPieceX - i) >= 0 ) { 
+//       needFour++; 
+//       i++; 
+//       console.log('while loop 1');
+//     };
+//       i = 1;
+    
+
+//     while((currentScore[lastPieceY+i][lastPieceX+i] === player) && (lastPieceY + i) <= 5 && (lastPieceX + i) <= 6 ) {
+//       needFour++; 
+//       i++; 
+//       console.log('while loop 2');
+//     };
+
+//       if (needFour >= 4) { 
+//       console.log("win diag descending");
+//       return true; 
+//       }
+
+// // diagonal ascending
+//     needFour = 1;
+
+//     while((currentScore[lastPieceY+i][lastPieceX-i] === player) && (lastPieceY+i) <= 5 && (lastPieceX - i) >= 0 ) { 
+//       needFour++; 
+//       i++; 
+//       console.log('while loop 1');
+//     };
+//       i = 1;
+    
+
+//     while((currentScore[lastPieceY-i][lastPieceX+i] === player) && (lastPieceY - i) >=0 && (lastPieceX + i) <= 6 ) {
+//       needFour++; 
+//       i++; 
+//       console.log('while loop 2');
+//     };
+
+//       if (needFour >= 4) { 
+//       console.log("win diag ascending");
+//       return true; 
+//       }
+
+
+
+
+
+
 
 
 
