@@ -70,36 +70,8 @@ $('#column-seven-button').click(function(){
   count++;
 });
 
-// var countItemsTruthy = function(currentScore){
-//   for(var y = 0; y < currentScore.length; y++){
-//     for(var x = 0; x < currentScore[y].length; x++){
-//         if (currentScore[y][x]){
-//           count++;
-//         }  
-//     }    
-//   }       console.log(count);
-//           return count;
-// }
 
-
-
-
-//   for (i = 0; currentScore.length >= i; i++) {
-//     if (currentScore[i]) {
-//       count++;
-//     }
-//   }
-//   return count;
-//   console.log(count);
-// }
-
-
-
-
-
-
-
-var whoseTurn = function(count){ 
+function whoseTurn(count){ 
     if (count % 2 === 0){
     console.log('whoseTurn returns red move');
     return "R";
@@ -108,6 +80,17 @@ var whoseTurn = function(count){
     return "B"; 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // var makeMove = function(y, x, count){}
 //   var currentBox = board[count-1];
@@ -157,43 +140,44 @@ var whoseTurn = function(count){
 
 
 
-var whichColumn = function(x){
+function whichColumn(x){
     // console.log("x is "+ x);
     var y = 5;
-  do {
+  if (keepPlaying){
+    do {
       var dimensionChange = (7*y) + x;
       
-    if (currentScore[y][x] === "" && whoseTurn(count)==="R"){
-      var redPlayer = "R";
-      board[dimensionChange].className = 'eachCircle circle-red';
-      currentScore[y].splice(x, 1, 'R');
-      console.log(currentScore);
-      console.log('red');
-      getWinner(y,x,redPlayer);
-      return true;
-    } else if (currentScore[y][x] === "" && whoseTurn(count)==="B"){
-      var blackPlayer = "B";
-      board[dimensionChange].className = 'eachCircle circle-black';
-      currentScore[y].splice(x, 1, 'B');
+      if (currentScore[y][x] === "" && whoseTurn(count)==="R"){
+        var redPlayer = "R";
+        board[dimensionChange].className = 'eachCircle circle-red';
+        currentScore[y].splice(x, 1, 'R');
+        console.log(currentScore);
+        console.log('red');
+        getWinner(y,x,redPlayer);
+        return true;
+      }   else if (currentScore[y][x] === "" && whoseTurn(count)==="B"){
+          var blackPlayer = "B";
+          board[dimensionChange].className = 'eachCircle circle-black';
+          currentScore[y].splice(x, 1, 'B');
      
-      console.log(currentScore);
-      console.log('black');
-      getWinner(y,x,blackPlayer);
-      return false
-      } else {
-        y--;
-        console.log("something there");
-        console.log(y + " at bottom");
-        }
+          console.log(currentScore);
+          console.log('black');
+          getWinner(y,x,blackPlayer);
+          return false
+          } else {
+          y--;
+          console.log("something there");
+          console.log(y + " at bottom");
+          }
       // console.log("x is "+ x);
-  }
+    }
   while(y >= 0);
+  }
 }
 
 
 
-function getWinner(lastPieceY, lastPieceX, player) {
-   
+function getWinner(lastPieceY, lastPieceX, player) { 
   var needFour = 1, 
      i = 1;
    // // across
@@ -212,6 +196,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
 
       if (needFour >= 4) { 
       console.log("win horizontal");
+      keepPlaying = false;
       return true; 
       }
 
@@ -234,6 +219,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
 
       if (needFour >= 4) { 
       console.log("win vertical");
+      keepPlaying = false;
       return true; 
       }
 
@@ -257,6 +243,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
 
       if (needFour >= 4) { 
       console.log("win diag descending");
+      keepPlaying = false;
       return true; 
       }
 
@@ -279,6 +266,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
 
       if (needFour >= 4) { 
       console.log("win diag ascending");
+      keepPlaying = false;
       return true; 
       }
 
