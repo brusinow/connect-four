@@ -15,6 +15,14 @@ var noMove = '<div class="circle-clear"></div>';
 var redMove = '<div class="circle-red"></div>';
 var blackMove = '<div class="circle-black"></div>';
 
+var moveSound = new Audio();
+moveSound.src = "sounds/move.mp3";
+
+var clearSound = new Audio();
+clearSound.src = "sounds/clear.mp3";
+
+var winSound = new Audio();
+winSound.src = "sounds/win.mp3";
 
 function whoseTurn(count){ 
     if (count % 2 === 0){
@@ -84,6 +92,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       displayWinner(winArray);
       keepPlaying = false;
       $("#dropPiece").draggable('disable');
+      winSound.play();
       return true; 
       }
 
@@ -112,6 +121,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       displayWinner(winArray);
       keepPlaying = false;
       $("#dropPiece").draggable('disable');
+      winSound.play();
       return true; 
       }
 
@@ -141,6 +151,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       displayWinner(winArray);
       keepPlaying = false;
       $("#dropPiece").draggable('disable');
+      winSound.play();
       return true; 
       }
 
@@ -169,6 +180,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       displayWinner(winArray);
       keepPlaying = false;
       $("#dropPiece").draggable('disable');
+      winSound.play();
       return true; 
       }
 
@@ -235,6 +247,7 @@ $(function() {
         hoverClass:  "hover",
             drop: function( event, ui ) {
                 $('#dropPiece').css({'top':'160px','left':'147px'});
+                moveSound.play();
                 console.log("dropped");
                 var x = 0;
                 whichColumn(x);
@@ -251,6 +264,7 @@ $(function() {
         hoverClass:  "hover",
             drop: function( event, ui ) {
                 $('#dropPiece').css({'top':'160px','left':'147px'});
+                moveSound.play();
                 console.log("dropped");
                 var x = 1;
                 whichColumn(x);
@@ -266,6 +280,7 @@ $(function() {
         hoverClass:  "hover",
             drop: function( event, ui ) {
                 $('#dropPiece').css({'top':'160px','left':'147px'});
+                moveSound.play();
                 console.log("dropped");
                 var x = 2;
                 whichColumn(x);
@@ -281,6 +296,7 @@ $(function() {
         hoverClass:  "hover",
             drop: function( event, ui ) {
                 $('#dropPiece').css({'top':'160px','left':'147px'});
+                moveSound.play();
                 console.log("dropped");
                 var x = 3;
                 whichColumn(x);
@@ -296,6 +312,7 @@ $(function() {
         hoverClass:  "hover",
             drop: function( event, ui ) {
                 $('#dropPiece').css({'top':'160px','left':'147px'});
+                moveSound.play();
                 console.log("dropped");
                 var x = 4;
                 whichColumn(x);
@@ -311,6 +328,7 @@ $(function() {
         hoverClass:  "hover",
             drop: function( event, ui ) {
                 $('#dropPiece').css({'top':'160px','left':'147px'});
+                moveSound.play();
                 console.log("dropped");
                 var x = 5;
                 whichColumn(x);
@@ -326,6 +344,7 @@ $(function() {
         hoverClass:  "hover",
             drop: function( event, ui ) {
                 $('#dropPiece').css({'top':'160px','left':'147px'});
+                moveSound.play();
                 console.log("dropped");
                 var x = 6;
                 whichColumn(x);
@@ -337,6 +356,7 @@ $(function() {
 
     });
 });
+
 
 
 
