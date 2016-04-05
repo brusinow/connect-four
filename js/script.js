@@ -1,3 +1,10 @@
+
+$(window).load(function() {
+var options = { };
+$('[data-remodal-id=modal]').remodal(options).open();
+});
+
+
 var currentScore =  [ ["","","","","","",""],
                       ["","","","","","",""],
                       ["","","","","","",""],
@@ -5,7 +12,7 @@ var currentScore =  [ ["","","","","","",""],
                       ["","","","","","",""],
                       ["","","","","","",""] ];
 
-
+var randomIndex = Math.floor(Math.random() * 7);
 var board = $("div.eachCircle");
 var keepPlaying = true;
 
@@ -41,27 +48,62 @@ function whoseTurn(count){
 
 function whichColumn(x){
   var y = 5;
-  if (keepPlaying){
+  if (keepPlaying && document.getElementById('playervscpu').checked){
     do {
+      console.log("cpu is checked");
       var dimensionChange = (7*y) + x;
       
-      if (currentScore[y][x] === "" && whoseTurn(count)==="R"){
-        var redPlayer = "R";
-        board[dimensionChange].className = 'eachCircle circle-red';
-        currentScore[y].splice(x, 1, 'R');
-        getWinner(y,x,redPlayer);
-        return true;
-      }   else if (currentScore[y][x] === "" && whoseTurn(count)==="B"){
-          var blackPlayer = "B";
-          board[dimensionChange].className = 'eachCircle circle-black';
-          currentScore[y].splice(x, 1, 'B');
-          getWinner(y,x,blackPlayer);
-          return false
-          } else {
-          y--;
-          }
+      
+          if (currentScore[y][x] === "" && whoseTurn(count)==="R"){
+            var redPlayer = "R";
+            board[dimensionChange].className = 'eachCircle circle-red';
+            currentScore[y].splice(x, 1, 'R');
+            getWinner(y,x,redPlayer);
+            console.log("right before computer move");
+            count++;
+            computerMove(randomIndex,count);
+            return true;
+          }   else if (currentScore[y][x] === "" && whoseTurn(count)==="B"){
+              var blackPlayer = "B";
+              board[dimensionChange].className = 'eachCircle circle-black';
+              currentScore[y].splice(x, 1, 'B');
+              getWinner(y,x,blackPlayer);
+              count++;
+              return false
+              } else {
+              y--;
+              }
+            
+    }
+        while(y >= 0);
+
+  } else if (keepPlaying) {
+  do {
+      var dimensionChange = (7*y) + x;
+      
+      
+          if (currentScore[y][x] === "" && whoseTurn(count)==="R"){
+            var redPlayer = "R";
+            board[dimensionChange].className = 'eachCircle circle-red';
+            currentScore[y].splice(x, 1, 'R');
+            getWinner(y,x,redPlayer);
+            count++;
+            return true;
+          }   else if (currentScore[y][x] === "" && whoseTurn(count)==="B"){
+              var blackPlayer = "B";
+              board[dimensionChange].className = 'eachCircle circle-black';
+              currentScore[y].splice(x, 1, 'B');
+              getWinner(y,x,blackPlayer);
+              count++
+              return false
+              } else {
+              y--;
+              }
+            
     }
   while(y >= 0);
+  } else {
+    return false;
   }
 }
 
@@ -256,7 +298,7 @@ $(function() {
                 console.log("dropped");
                 var x = 0;
                 whichColumn(x);
-                count++;
+              
                 $("#arrow").addClass( "imageflash" );
                
                 whoseTurn(count);
@@ -273,7 +315,7 @@ $(function() {
                 console.log("dropped");
                 var x = 1;
                 whichColumn(x);
-                count++;
+              
                 $("#arrow").addClass( "imageflash" );
              
                 whoseTurn(count);
@@ -289,7 +331,7 @@ $(function() {
                 console.log("dropped");
                 var x = 2;
                 whichColumn(x);
-                count++;
+                
                 $("#arrow").addClass( "imageflash" );
                
                 whoseTurn(count);
@@ -305,7 +347,7 @@ $(function() {
                 console.log("dropped");
                 var x = 3;
                 whichColumn(x);
-                count++;
+                
                 $("#arrow").addClass( "imageflash" );
               
                 whoseTurn(count);
@@ -321,7 +363,7 @@ $(function() {
                 console.log("dropped");
                 var x = 4;
                 whichColumn(x);
-                count++;
+                
                 $("#arrow").addClass( "imageflash" );
               
                 whoseTurn(count);
@@ -337,7 +379,7 @@ $(function() {
                 console.log("dropped");
                 var x = 5;
                 whichColumn(x);
-                count++;
+                
                 $("#arrow").addClass( "imageflash" );
               
                 whoseTurn(count);
@@ -353,7 +395,7 @@ $(function() {
                 console.log("dropped");
                 var x = 6;
                 whichColumn(x);
-                count++;
+                
                 $("#arrow").addClass( "imageflash" );
           
                 whoseTurn(count);
@@ -398,11 +440,24 @@ function playerScore(player){
   }
 }
 
+function computerMove(randomIndex,count) {
+  if (count % 2 === 1) {
+    var randomIndex = Math.floor(Math.random() * 7);
+    whichColumn(randomIndex);
+    count++;
+    console.log("should re-enter function after this");
+  }
+}
 
 
 
-     
+$("#2PlayerButton").click(function(){
+   $("#2player").prop("checked", true)   
+});
 
+$("#playerVsCpuButton").click(function(){
+   $("#playervscpu").prop("checked", true)   
+});
 
 
 
