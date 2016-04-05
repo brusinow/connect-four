@@ -279,7 +279,7 @@ $(function() {
             // $(this).data("ui-draggable")
             $(this).data("uiDraggable").originalPosition = {
                 top : 160,
-                left : 150
+                left : -69
             };
             // return boolean
             return !event;
@@ -293,7 +293,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'150px'});
+                $('#dropPiece').css({'top':'160px','left':'-69px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 0;
@@ -310,7 +310,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'150px'});
+                $('#dropPiece').css({'top':'160px','left':'-69px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 1;
@@ -326,7 +326,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'150px'});
+                $('#dropPiece').css({'top':'160px','left':'-69px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 2;
@@ -342,7 +342,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'150px'});
+                $('#dropPiece').css({'top':'160px','left':'-69px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 3;
@@ -358,7 +358,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'150px'});
+                $('#dropPiece').css({'top':'160px','left':'-69px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 4;
@@ -374,7 +374,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'150px'});
+                $('#dropPiece').css({'top':'160px','left':'-69px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 5;
@@ -390,7 +390,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'150px'});
+                $('#dropPiece').css({'top':'160px','left':'-69px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 6;
