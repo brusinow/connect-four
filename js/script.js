@@ -61,7 +61,7 @@ function whichColumn(x){
             getWinner(y,x,redPlayer);
             console.log("right before computer move");
             count++;
-            computerMove(randomIndex,count);
+            computerMove(y,x,randomIndex,count);
             return true;
           }   else if (currentScore[y][x] === "" && whoseTurn(count)==="B"){
               var blackPlayer = "B";
@@ -450,14 +450,164 @@ function playerScore(player){
   }
 }
 
-function computerMove(randomIndex,count) {
+function computerMove(lastPieceY,lastPieceX,randomIndex,count) {
   if (count % 2 === 1) {
-    var randomIndex = Math.floor(Math.random() * 7);
-    whichColumn(randomIndex);
-    count++;
-    console.log("should re-enter function after this");
-  }
+   
+var playerCount = 1,
+playerBestArray = [lastPieceX];
+ 
+     i = 1;
+   // // across
+    while((lastPieceX - i) >= 0 && (currentScore[lastPieceY][lastPieceX - i]) === "R" ) {       
+      playerBestArray.push(lastPieceX - i);
+      playerCount++; 
+      i++;       
+    };
+      i = 1;
+
+    while(currentScore[lastPieceY][lastPieceX + i] === "R" && (lastPieceX + i) <= 6) {
+      playerBestArray.push(lastPieceX + i);
+      playerCount++; 
+      i++; 
+      console.log('horiz loop 2');
+    };
+
+      if (playerCount >= 3) { 
+      playerBestArray = playerBestArray.sort(function(a, b){return a-b});
+        if (playerBestArray[2] <= 5){
+      var x = playerBestArray[2]+1;
+        } else if (playerBestArray[0] >= 1){
+          var x = playerBestArray[0]-1; 
+          }
+          whichColumn(x);
+          count++;
+      return true; 
+      }
+
+
+    //down
+    playerCount = 1;
+    playerBestArray = [lastPieceX];
+
+    while(((lastPieceY - i) >= 0)  && (currentScore[lastPieceY-i][lastPieceX] === "R")) { 
+      playerBestArray.push(lastPieceX);
+      playerCount++; 
+      i++; 
+      console.log('vert loop 1');
+    };
+      i = 1;
+    
+    while(((lastPieceY + i) <= 5) && (currentScore[lastPieceY+i][lastPieceX] === "R")) {
+      playerBestArray.push(lastPieceX);
+      playerCount++; 
+      i++; 
+      console.log('vert loop 2');
+    };
+
+     if (playerCount >= 3) { 
+      var x = playerBestArray[0];
+      whichColumn(x);
+      count++;
+      return true
+      }
+
+//------------------------------>
+// diagonal descending
+    playerCount = 1;
+    playerBestArray = [lastPieceX];
+
+    while((lastPieceY - i) >= 0 && (lastPieceX - i) >= 0  &&  currentScore[lastPieceY-i][lastPieceX-i] === "R" ) { 
+      playerBestArray.push([lastPieceX - i]);
+      playerCount++; 
+      i++; 
+      console.log('while loop 1');
+    };
+      i = 1;
+    
+
+    while((lastPieceY + i) <= 5 && (lastPieceX + i) <= 6  && currentScore[lastPieceY+i][lastPieceX+i] === "R" ) {
+      playerBestArray.push([lastPieceX + i]);
+      playerCount++; 
+      i++; 
+      console.log('while loop 2');
+    };
+
+      if (playerCount >= 3) { 
+      playerBestArray = playerBestArray.sort(function(a, b){return a-b});
+        if (playerBestArray[2] <= 5){
+          var x = playerBestArray[2]+1;
+        } else if (playerBestArray[0] >= 1){
+          var x = playerBestArray[0]-1; 
+          }
+        whichColumn(x);
+        count++;
+      return true; 
+      }
+
+// diagonal ascending
+    playerCount = 1;
+      winArray = [lastPieceX];
+
+    while((lastPieceY + i) <= 5 && (lastPieceX - i) >= 0  &&  currentScore[lastPieceY+i][lastPieceX-i] === "R" ) { 
+      playerBestArray.push([lastPieceX - i]);
+      playerCount++; 
+      i++; 
+      console.log('while loop 1');
+    };
+      i = 1;
+    
+
+    while((lastPieceY - i) >= 0 && (lastPieceX + i) <= 6  && currentScore[lastPieceY-i][lastPieceX+i] === "R" ) {
+      playerBestArray.push([lastPieceX + i]);
+      playerCount++; 
+      i++; 
+      console.log('while loop 2');
+    };
+
+      if (playerCount >= 3) { 
+        playerBestArray = playerBestArray.sort(function(a, b){return a-b});
+        if (playerBestArray[2] <= 5){
+        var x = playerBestArray[2]+1;
+        } else if (playerBestArray[0] >= 1){
+          var x = playerBestArray[0]-1; 
+          }
+          whichColumn(x);
+          count++;
+      return true; 
+      }
+      var randomIndex = Math.floor(Math.random() * 7);
+      whichColumn(randomIndex);
+      count++;
+   console.log("no 3's yet");
+   return false;
 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
