@@ -405,22 +405,32 @@ $(function() {
 });
 
 
-    $('#clearbutton').click(function(){
-      clearSound.play();
-      for(var y = 0; y < 6; y++) {
-      for(var x = 0; x < 7; x++) {
-        currentScore[y][x]="";
+$('#clearbutton').click(function(){
+  clearSound.play();
+  for(var y = 0; y < 6; y++) {
+    for(var x = 0; x < 7; x++) {
+    currentScore[y][x]="";
+  }
     }
-}
 
-      for (var i=0; i<board.length;i++) {
-      board[i].className = "eachCircle circle-clear";
-      }
-       count = 0;      
-       whoseTurn(count); 
-       keepPlaying = true; 
-       $("#dropPiece").draggable('enable');     
-    });
+  for (var i=0; i<board.length;i++) {
+  board[i].className = "eachCircle circle-clear";
+  }
+   count = 0;      
+   whoseTurn(count); 
+   keepPlaying = true; 
+   $("#dropPiece").draggable('enable');     
+});
+
+
+
+$("#clearScore").click(function(){
+    var redScore = 0;
+    var blackScore = 0; 
+    $("#redScoreValue").text(redScore);
+    $("#blackScoreValue").text(blackScore);
+});
+
 
 
 
