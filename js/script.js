@@ -10,6 +10,8 @@ var board = $("div.eachCircle");
 var keepPlaying = true;
 
 var count = 0;
+var redScore = 0;
+var blackScore = 0;
 
 var noMove = '<div class="circle-clear"></div>';
 var redMove = '<div class="circle-red"></div>';
@@ -27,10 +29,10 @@ winSound.src = "sounds/win.mp3";
 function whoseTurn(count){ 
     if (count % 2 === 0){
     console.log('whoseTurn returns red move');
-    $("#dropPiece").css({"background-color": "#ff3300", "border": "15px solid #ff3300", "box-shadow": "inset 0px 0px 10px #333333"});
+    $("#dropPiece").css({"background-color": "#ff3300", "border": "12px solid #ff3300", "box-shadow": "inset 0px 0px 10px #333333"});
     return "R";
     } else { 
-    $("#dropPiece").css({"background-color": "#000000", "border": "15px solid #000000", "box-shadow": "inset 0px 0px 10px #777777"}); 
+    $("#dropPiece").css({"background-color": "#000000", "border": "12px solid #000000", "box-shadow": "inset 0px 0px 10px #777777"}); 
     console.log('whoseTurn returns black move'); 
     return "B"; 
     }
@@ -90,6 +92,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       console.log(winArray);
       console.log("win horizontal");
       displayWinner(winArray);
+      playerScore(player);
       keepPlaying = false;
       $("#dropPiece").draggable('disable');
       winSound.play();
@@ -119,6 +122,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       if (needFour >= 4) { 
       console.log("win vertical");
       displayWinner(winArray);
+      playerScore(player);
       keepPlaying = false;
       $("#dropPiece").draggable('disable');
       winSound.play();
@@ -149,6 +153,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       if (needFour >= 4) { 
       console.log("win diag descending");
       displayWinner(winArray);
+      playerScore(player);
       keepPlaying = false;
       $("#dropPiece").draggable('disable');
       winSound.play();
@@ -178,6 +183,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       if (needFour >= 4) { 
       console.log("win diag ascending");
       displayWinner(winArray);
+      playerScore(player);
       keepPlaying = false;
       $("#dropPiece").draggable('disable');
       winSound.play();
@@ -221,7 +227,6 @@ function displayWinner(winArray){
 $(function() {
     $("#dropPiece").draggable({
             drag: function (event, ui) {
-               $("#highlightPiece").css({"border":"0px solid white"});
                $("#arrow").removeClass( "imageflash" );
                console.log( "dragging" );
                }, 
@@ -232,7 +237,7 @@ $(function() {
             // $(this).data("ui-draggable")
             $(this).data("uiDraggable").originalPosition = {
                 top : 160,
-                left : 147
+                left : 150
             };
             // return boolean
             return !event;
@@ -246,14 +251,14 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'147px'});
+                $('#dropPiece').css({'top':'160px','left':'150px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 0;
                 whichColumn(x);
                 count++;
                 $("#arrow").addClass( "imageflash" );
-                $("#highlightPiece").css({"border":"8px solid black"}); 
+               
                 whoseTurn(count);
 
         }
@@ -263,14 +268,14 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'147px'});
+                $('#dropPiece').css({'top':'160px','left':'150px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 1;
                 whichColumn(x);
                 count++;
                 $("#arrow").addClass( "imageflash" );
-                $("#highlightPiece").css({"border":"8px solid black"}); 
+             
                 whoseTurn(count);
             }
     });
@@ -279,14 +284,14 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'147px'});
+                $('#dropPiece').css({'top':'160px','left':'150px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 2;
                 whichColumn(x);
                 count++;
                 $("#arrow").addClass( "imageflash" );
-                $("#highlightPiece").css({"border":"8px solid black"}); 
+               
                 whoseTurn(count);
             }    
     });
@@ -295,14 +300,14 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'147px'});
+                $('#dropPiece').css({'top':'160px','left':'150px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 3;
                 whichColumn(x);
                 count++;
                 $("#arrow").addClass( "imageflash" );
-                $("#highlightPiece").css({"border":"8px solid black"}); 
+              
                 whoseTurn(count);
             }    
     });
@@ -311,14 +316,14 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'147px'});
+                $('#dropPiece').css({'top':'160px','left':'150px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 4;
                 whichColumn(x);
                 count++;
                 $("#arrow").addClass( "imageflash" );
-                $("#highlightPiece").css({"border":"8px solid black"}); 
+              
                 whoseTurn(count);
             }    
     });
@@ -327,14 +332,14 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'147px'});
+                $('#dropPiece').css({'top':'160px','left':'150px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 5;
                 whichColumn(x);
                 count++;
                 $("#arrow").addClass( "imageflash" );
-                $("#highlightPiece").css({"border":"8px solid black"}); 
+              
                 whoseTurn(count);
             }    
     });
@@ -343,14 +348,14 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'147px'});
+                $('#dropPiece').css({'top':'160px','left':'150px'});
                 moveSound.play();
                 console.log("dropped");
                 var x = 6;
                 whichColumn(x);
                 count++;
                 $("#arrow").addClass( "imageflash" );
-                $("#highlightPiece").css({"border":"8px solid black"}); 
+          
                 whoseTurn(count);
       }
 
@@ -358,11 +363,40 @@ $(function() {
 });
 
 
+    $('#clearbutton').click(function(){
+      clearSound.play();
+      for(var y = 0; y < 6; y++) {
+      for(var x = 0; x < 7; x++) {
+        currentScore[y][x]="";
+    }
+}
+
+      for (var i=0; i<board.length;i++) {
+      board[i].className = "eachCircle circle-clear";
+      }
+       count = 0;      
+       whoseTurn(count); 
+       keepPlaying = true; 
+       $("#dropPiece").draggable('enable');     
+    });
 
 
 
-
-
+function playerScore(player){
+  if (player === 'R'){
+    console.log("scoreboard should add Red");
+    redScore++;
+    $("#redScoreValue").text(redScore);
+  }
+  else if (player === 'B'){
+    console.log("scoreboard should add Black");
+    blackScore++;
+    $("#blackScoreValue").text(blackScore);
+  } else {
+    console.log("scoreboard failing");
+    return false;
+  }
+}
 
 
 
