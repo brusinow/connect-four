@@ -20,6 +20,15 @@ body {
   background-color: #ccf5ff;
 }
 
+p {
+
+}
+
+label {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
 
 .container {
   width: 960px;
@@ -35,39 +44,43 @@ body {
 }
 
 .button {
-    color: black;
+    color: #555555;
+    font-family: 'Open Sans', sans-serif;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     margin: 4px 2px;
     cursor: pointer;
-    background: -webkit-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 0%,rgba(254,254,254,1) 100%);
+    background: white;
     border: 1px solid #555555;
     border-radius: 28px;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    font-weight: bold;
+}
+
+.button:hover {
+    color: white;
+    background-color: #555555;
 }
 
 #clearbutton {
     position: absolute;
-    top: 640px;
-    left: 576px;
-    padding: 10px 90px;
-    font-size: 20px;
+    top: 340px;
+    left: 593px;
+    padding: 10px 70px;
+    font-size: 16px;
+
 }
 
 #clearScore {
     position: absolute;
     top: 108px;
-    left: 8px;
-    padding: 4px 50px;
-    font-size: 16px;
+    left: 30px;
+    padding: 4px 35px;
+    font-size: 14px;
 }
 
-/*.button:hover {
-    background-color: #888888; 
-    color: white;
-}*/
 
 #main-box {
   background: url("../img/framebg.jpg");
@@ -134,8 +147,8 @@ body {
 
 #radioButtons {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 300px;
+  left: 1135px;
 }
 
 .scoreBox {
@@ -148,16 +161,18 @@ body {
   width: 250px;
   border: 2px solid #ac7339;
   border-radius: 4px; 
-  font-family: Arial;
+  padding-right: 12px;
 }
 
 .scoreBox h2 {
-  font-size: 30px;
+  font-size: 34px;
+  font-family: 'Lato', sans-serif;
   text-decoration: underline;
 }
 
 .scoreBox p {
-  font-size: 55px;
+  font-size: 48px;
+  font-family: 'Black Ops One', serif;
 }
 
 
