@@ -17,7 +17,8 @@ hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padd
 input,select{vertical-align:middle}
 
 body {
-  background-color: #ccf5ff;
+  background: url("../img/tablebg.jpg") no-repeat fixed; 
+  background-position: contain center top;
 }
 
 p {
@@ -29,6 +30,8 @@ label {
   font-size: 14px;
   font-weight: bold;
 }
+
+
 
 .container {
   position: relative;
@@ -84,7 +87,7 @@ label {
 
 
 #main-box {
-  background: url("../img/framebg.jpg");
+  background: url("../img/frame2bg.png");
   background-size: contain;
   position: relative;
   width: 714px;
@@ -104,7 +107,7 @@ label {
   top: 10%;
   width: 65px;
   height: 65px;
-  background-color: #ccf5ff;
+  background-color: rgba(0, 0, 0, 0);
   border: 1px solid black;
   border-radius: 50px;
   box-shadow: inset 3px -4px 8px rgba(0,0,0,0.7);

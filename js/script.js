@@ -425,10 +425,10 @@ $('#clearbutton').click(function(){
 
 
 $("#clearScore").click(function(){
-    var redScore = 0;
-    var blackScore = 0; 
-    $("#redScoreValue").text(redScore);
-    $("#blackScoreValue").text(blackScore);
+    redScore = 0;
+    blackScore = 0; 
+    $("#redScoreValue").text("0");
+    $("#blackScoreValue").text("0");
 });
 
 
