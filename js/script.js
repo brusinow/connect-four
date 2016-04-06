@@ -1,9 +1,10 @@
 
-$(window).load(function() {
-var options = { };
-$('[data-remodal-id=modal]').remodal(options).open();
-});
-
+// $(window).load(function() {
+// var options = { };
+// $('[data-remodal-id=modal]').remodal(options).open();
+// });
+var $window = $(window);
+var $pane = $('#pane1');
 
 var currentScore =  [ ["","","","","","",""],
                       ["","","","","","",""],
@@ -36,10 +37,10 @@ winSound.src = "sounds/win.mp3";
 function whoseTurn(count){ 
     if (count % 2 === 0){
     console.log('whoseTurn returns red move');
-    $("#dropPiece").css({"background-color": "#ff3300", "border": "12px solid #ff3300", "box-shadow": "inset 0px 0px 10px #333333"});
+    $("#dropPiece").css({"background-color": "#ff3300", "border-color": "#ff3300", "box-shadow-color": "#333333"});
     return "R";
     } else { 
-    $("#dropPiece").css({"background-color": "#000000", "border": "12px solid #000000", "box-shadow": "inset 0px 0px 10px #777777"}); 
+    $("#dropPiece").css({"background-color": "#000000", "border-color": "#000000", "box-shadow-color": "#777777"}); 
     console.log('whoseTurn returns black move'); 
     return "B"; 
     }
@@ -262,9 +263,32 @@ function displayWinner(winArray){
  //          }
 
 
+function checkWidth() {
+        var windowsize = $window.width();
+        if (windowsize <= 768) {
+                  $(this).data("uiDraggable").originalPosition = {
+                  top : -20,
+                  left : 100
+                  };
+                }   
+                else {
+                  $(this).data("uiDraggable").originalPosition = {
+                  top : 160,
+                  left : -69
+                  };
+        }  
+}
 
 
-
+function checkWidthCSS() {
+   var windowsize = $window.width();
+        if (windowsize <= 768) {
+         $('#dropPiece').css({'top':'-20px','left':'100px'});   
+        }   
+        else if (windowsize > 768) {
+         $('#dropPiece').css({'top':'160px','left':'-69px'});   
+        } 
+}
 
 $(function() {
     $("#dropPiece").draggable({
@@ -277,23 +301,20 @@ $(function() {
             // $(this).data("draggable")
             // on 2.x versions of jQuery use "ui-draggable"
             // $(this).data("ui-draggable")
-            $(this).data("uiDraggable").originalPosition = {
-                top : 160,
-                left : -69
-            };
+                checkWidth();
+                
             // return boolean
-            return !event;
+              return !event;
             // that evaluate like this:
             // return event !== false ? false : true;
-        }
-         
-    });
+});
+
     $('#1-drop').droppable({
         tolerance: "pointer",
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'-69px'});
+                checkWidthCSS();
                 moveSound.play();
                 console.log("dropped");
                 var x = 0;
@@ -310,7 +331,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'-69px'});
+                checkWidthCSS();
                 moveSound.play();
                 console.log("dropped");
                 var x = 1;
@@ -326,7 +347,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'-69px'});
+                checkWidthCSS();
                 moveSound.play();
                 console.log("dropped");
                 var x = 2;
@@ -342,7 +363,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'-69px'});
+                checkWidthCSS();
                 moveSound.play();
                 console.log("dropped");
                 var x = 3;
@@ -358,7 +379,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'-69px'});
+                checkWidthCSS();
                 moveSound.play();
                 console.log("dropped");
                 var x = 4;
@@ -374,7 +395,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'-69px'});
+                checkWidthCSS();
                 moveSound.play();
                 console.log("dropped");
                 var x = 5;
@@ -390,7 +411,7 @@ $(function() {
         activeClass: "active",
         hoverClass:  "hover",
             drop: function( event, ui ) {
-                $('#dropPiece').css({'top':'160px','left':'-69px'});
+                checkWidthCSS();
                 moveSound.play();
                 console.log("dropped");
                 var x = 6;

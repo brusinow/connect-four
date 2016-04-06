@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
   <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,500">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Black+Ops+One:400,700,500">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:400,700,500">
@@ -26,103 +29,138 @@
 
 
 <div class="remodal-bg">
-<div class="container" id="mainContainer">
-  <div class="container" style="margin-top:10px;">
-  <div class="drop-area">
-        <div class="droppable" id="1-drop"></div>
-        <div class="droppable" id="2-drop"></div>
-        <div class="droppable" id="3-drop"></div>
-        <div class="droppable" id="4-drop"></div>
-        <div class="droppable" id="5-drop"></div>
-        <div class="droppable" id="6-drop"></div>
-        <div class="droppable" id="7-drop"></div>
-      </div>
-  </div>
-  <div class="container" style="clear: both;">
-    <div id="main-box">
-    <!-- row 1 -->
-          <div class="eachSquare" id="box1"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box2"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box3"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box4"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box5"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box6"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box7"><div class="eachCircle circle-clear"></div></div>
-    <!-- row 2 -->
-          <div class="eachSquare" id="box8"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box9"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box10"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box11"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box12"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box13"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box14"><div class="eachCircle circle-clear"></div></div>
-    <!-- row 3 -->
-          <div class="eachSquare" id="box15"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box16"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box17"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box18"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box19"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box20"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box21"><div class="eachCircle circle-clear"></div></div>
-    <!-- row 4 -->
-          <div class="eachSquare" id="box22"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box23"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box24"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box25"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box26"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box27"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box28"><div class="eachCircle circle-clear"></div></div>
-    <!-- row 5 -->
-          <div class="eachSquare" id="box29"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box30"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box31"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box32"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box33"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box34"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box35"><div class="eachCircle circle-clear"></div></div>
-    <!-- row 6 -->
-          <div class="eachSquare" id="box36"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box37"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box38"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box39"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box40"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box41"><div class="eachCircle circle-clear"></div></div>
-          <div class="eachSquare" id="box42"><div class="eachCircle circle-clear"></div></div>
-    </div>
-  </div>
-      <div><img src="img/arrow.png" class="imageflash" id="arrow" alt="arrow"></div>
-      
-      <div id="radioButtons">
-        <label>
-            <input name="gameselect" type="radio" class="radio" id="twoplayer" value="Two Player" checked /> 
-              Two Player
-          </label>  
-          <label>
-            <input name="gameselect" type="radio" class="radio" id="playervscpu" value="Player vs Computer"/> 
-              Player vs. Computer
-        </label>
-      </div>
 
-      <div class="button" id="clearbutton">New Game</div>
-
+  <div class="container" id="container-main">
+    <section class="row">
+      <div class="col-xs-6 col-xs-offset-6 col-lg-6 col-lg-offset-6 free-floating-div">
+      <div><img src="img/arrow.png" class="imageflash" id="arrow" alt="arrow"></div> 
       <div class="" id="dropPiece"></div>
-        <div class="blue-leg" id="leg-left"></div>
-        <div class="blue-leg" id="leg-right"></div>
-        
+      </div>
 
+    </section>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-lg-8" >
+        <div class="drop-area" >
+          <div class="droppable" id="1-drop"></div>
+          <div class="droppable" id="2-drop"></div>
+          <div class="droppable" id="3-drop"></div>
+          <div class="droppable" id="4-drop"></div>
+          <div class="droppable" id="5-drop"></div>
+          <div class="droppable" id="6-drop"></div>
+          <div class="droppable" id="7-drop"></div>
+        </div>
+        
+        
+       
+        <section class="entire-board">
+        <div class="blue-leg" id="leg-left"></div>
+        <div id="main-box" style="clear: both;">
+      <!-- row 1 -->
+            <div class="eachSquare" id="box1"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box2"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box3"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box4"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box5"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box6"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box7"><div class="eachCircle circle-clear"></div></div>
+      <!-- row 2 -->
+            <div class="eachSquare" id="box8"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box9"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box10"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box11"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box12"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box13"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box14"><div class="eachCircle circle-clear"></div></div>
+      <!-- row 3 -->
+            <div class="eachSquare" id="box15"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box16"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box17"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box18"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box19"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box20"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box21"><div class="eachCircle circle-clear"></div></div>
+      <!-- row 4 -->
+            <div class="eachSquare" id="box22"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box23"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box24"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box25"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box26"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box27"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box28"><div class="eachCircle circle-clear"></div></div>
+      <!-- row 5 -->
+            <div class="eachSquare" id="box29"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box30"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box31"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box32"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box33"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box34"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box35"><div class="eachCircle circle-clear"></div></div>
+      <!-- row 6 -->
+            <div class="eachSquare" id="box36"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box37"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box38"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box39"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box40"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box41"><div class="eachCircle circle-clear"></div></div>
+            <div class="eachSquare" id="box42"><div class="eachCircle circle-clear"></div></div>
+        </div>
+         <div class="blue-leg" id="leg-right"></div>
+        </section>
+          
+      </div>
+      <div class="col-xs-12 col-lg-3 col-lg-offset-1">
       <div class="scoreBox">
         <div id="redScore">
           <h2>RED</h2>
           <p id="redScoreValue">0</p>
         </div>
         <div id="blackScore">
-          <h2>BLACK</h2>
+          <h2 id="blackScoreHeader">BLACK</h2>
           <p id="blackScoreValue">0</p>
         </div>  
        <div class="button" id="clearScore">Clear Scoreboard</div>  
       </div>
+      <div class="below-scoreboard">
+      <!-- <div id="radioButtons"> -->
+          <div class="radio-div">
+          <input name="gameselect" type="radio" class="radio" id="twoplayer" value="Two Player" checked />
+          <label> 
+              Two Player
+          </label>
+          <input name="gameselect" type="radio" class="radio" id="playervscpu" value="Player vs Computer"/> 
+          <label>
+              Player vs. Computer
+        </label>
+        </div>
+     <!--  </div> -->
+      <div class="button" id="clearbutton">New Game</div>
+      </div>
+      </div>
+    </div>
+  </div>    
+
+      
+        
+        
+      
+   
+    
+ 
+  
+
+
+
+
+
+
+
+
+
+
 <div class="container" style="margin-top:40px;"></div> 
-</div>
+
 </div>      
 
     
@@ -132,6 +170,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="js/remodal.min.js"></script>
 <script src="js/script.js"></script>
 </body>

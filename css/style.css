@@ -21,31 +21,39 @@ body {
   background-position: contain center top;
 }
 
-p {
-
-}
 
 label {
+  display: inline-block;
+  color: white;
   font-family: 'Lato', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
 }
 
 
 
+@media (max-width: 900px) {
+    #arrow {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
 .container {
   position: relative;
-  width: 960px;
   margin: 0 auto;
 }
 
-.eachSquare {
-  position: relative;
-  float: left;
-  background-color: rgba(0, 0, 0, 0);
-  width: 100px;
-  height: 85px;
+#container-main {
+  margin-top: 60px;
 }
+
+
 
 .button {
     color: #555555;
@@ -68,45 +76,73 @@ label {
     background-color: #555555;
 }
 
-#clearbutton {
-    position: absolute;
-    top: 340px;
-    left: 922px;
-    padding: 10px 70px;
-    font-size: 16px;
+.free-floating-div{
+  height: 50px;
 
 }
 
-#clearScore {
-    position: absolute;
-    top: 108px;
-    left: 30px;
-    padding: 4px 35px;
-    font-size: 14px;
+#dropPiece{
+  z-index: 99;
+  position: absolute;
+  background-color: #ff3300;
+  height: 28px;
+  width: 28px;
+  border: 6px solid #ff3300;
+  border-radius: 85px;
+  box-shadow: inset 0px 0px 5px #333333;
+  top: -20px;
+    left: 100px;
 }
 
+
+.drop-area{
+  margin: 0 auto;
+  width: 287px;
+}
+
+.droppable {
+  width: 41px;
+  height: 45px;
+  float: left;
+}
+/*styling for frame and holes*/
+
+.entire-board {
+  position: relative;
+  margin: 0 auto;
+  width: 360px;
+  z-index:-2;
+ 
+  background-color: rgba(0, 0, 0, 0);
+}
 
 #main-box {
-  background: url("../img/frame2bg.png");
-  background-size: contain;
-  position: relative;
-  width: 714px;
-  height: 520px;
+ /* background: url("../img/frame2bg.png");*/
+ /* background-size: cover;*/
+  background-color: yellow;
+  /*position: relative;*/
+  width: 294px;
+  height: 224px;
   border: 3px solid black;
   margin: 0 auto;
   
 }
 
-.clearFloat {
-  float: none;
+.eachSquare {
+  position: relative;
+  float: left;
+  background-color: rgba(0, 0, 0, 0);
+  
+  width: 41px;
+  height: 36px;
 }
 
 .circle-clear {
   position: absolute;
   left: 15%;
   top: 10%;
-  width: 65px;
-  height: 65px;
+  width: 28px;
+  height: 28px;
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid black;
   border-radius: 50px;
@@ -117,8 +153,8 @@ label {
   position: absolute;
   left: 15%;
   top: 10%;
-  width: 65px;
-  height: 65px;
+  width: 28px;
+  height: 28px;
   background-color: #ff3300;
   border: 1px solid black;
   border-radius: 50px;
@@ -133,8 +169,8 @@ label {
   position: absolute;
   left: 15%;
   top: 10%;
-  width: 65px;
-  height: 65px;
+  width: 28px;
+  height: 28px;
   background-color: black;
   border: 1px solid black;
   border-radius: 50px;
@@ -145,60 +181,124 @@ label {
 
 }
 
-.radio {
+
+.blue-leg {
+    background: -webkit-linear-gradient(left, rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);
+    z-index:-1;
+    width: 16px;
+    height: 240px;
+    border: 1px solid black;
   
 }
 
-#radioButtons {
+#leg-left{
   position: absolute;
-  width: 250px;
-  top: 300px;
-  left: 900px;
+  top: 45px;
+  left: 18px;
+  border-radius: 15px 0px 5px 5px;
+  box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
 }
 
-.scoreBox {
-  background: url("../img/scoreboardbg.jpg");
-  background-size: contain;
+#leg-right{
   position: absolute;
-  top: 120px;
-  left: 890px;
+  top: 45px;
+  left: 326px;
+  border-radius: 0px 15px 5px 5px;
+  box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
+}
+
+
+.radio {
+  display: inline-block;
+}
+
+.radio-div {
+  width: 216px;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
+
+
+.scoreBox {
+  position: relative;
+  margin: 0 auto;
+  margin-top:25px;
+  width: 300px;
   height: 150px;
-  width: 250px;
+  background-color: white;
   border: 2px solid #ac7339;
   border-radius: 4px; 
-  padding-right: 12px;
 }
 
 .scoreBox h2 {
-  font-size: 34px;
+  font-size: 30px;
   font-family: 'Lato', sans-serif;
   text-decoration: underline;
 }
 
-.scoreBox p {
-  font-size: 48px;
+  .scoreBox p {
+  font-size: 60px;
   font-family: 'Black Ops One', serif;
 }
 
-
-
 #redScore {
-  float: left;
+  position: absolute;
   padding-top: 15px;
-  width: 125px;
-  height: 150px;
+  left: 45px;
   background-color: rgba(0, 0, 0, 0); 
   text-align: center;
 }
+
+
 
 #blackScore {
-  float: left;
+  position: absolute;
   padding-top: 15px;
-  width: 125px;
-  height: 150px;
+  left: 160px;
   background-color: rgba(0, 0, 0, 0); 
   text-align: center;
 }
+
+
+#clearScore {
+    position: absolute;
+    top: 108px;
+    left: 45px;
+    padding: 4px 35px;
+    font-size: 14px;
+}
+
+.below-scoreboard {
+  position: relative;
+  width: 240px;
+  margin: 0 auto;
+}
+
+
+#radioButtons {
+  margin: 0 auto;
+  width: 250px;
+  
+}
+
+#clearbutton {
+    margin: 0 auto;
+    padding: 10px 70px;
+    font-size: 16px;
+
+}
+
+
+
+
+
+
+
+
+
 
 #highlightPiece {
   position: absolute;
@@ -213,64 +313,14 @@ label {
 
 
 
-#dropPiece{
-  position: absolute;
-  background-color: #ff3300;
-  height: 65px;
-  width: 65px;
-  border: 12px solid #ff3300;
-  border-radius: 85px;
-  box-shadow: inset 0px 0px 10px #333333;
-  top: 160px;
-  left: -69px;
-}
-
-#arrow{
-  position: absolute;
-  top: 20px;
-  left: -40px;
-  width:150px;
-}
 
 
-.blue-leg {
-    background: -webkit-linear-gradient(left, rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);
-    z-index:-1;
-    width: 35px;
-    height: 575px;
-    border: 1px solid black;
-  
-}
-
-#leg-left{
-  position: absolute;
-  
-  top: 102px;
-  left: 85px;
-  border-radius: 15px 0px 5px 5px;
-  box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
-}
-
-#leg-right{
-  position: absolute;
- 
-  top: 102px;
-  left: 839px;
-  border-radius: 0px 15px 5px 5px;
-  box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
-}
 
 
-.drop-area{
-  margin: 0 auto;
-  width: 714px;
-}
 
-.droppable {
-  width: 102px;
-  height: 102px;
-  float: left;
-}
+
+
+
 
 
 .borderflash {
@@ -362,3 +412,181 @@ label {
     100% { opacity:1; }
 }
 
+@media (min-width: 720px) {
+ 
+  
+  .scoreBox p {
+  font-size: 48px;
+  font-family: 'Black Ops One', serif;
+  }
+}
+
+@media (min-width: 900px) {
+  
+
+  .drop-area{
+  margin: 0 auto;
+  width: 704px;
+}
+
+.droppable {
+  width: 100px;
+  height: 102px;
+  float: left;
+}
+
+
+  #main-box {
+ /* background: url("../img/frame2bg.png");*/
+ /* background-size: cover;*/
+  background-color: yellow;
+  /*position: relative;*/
+  width: 706px;
+  height: 520px;
+  border: 3px solid black;
+  margin: 0 auto;
+  
+}
+
+.eachSquare {
+  position: relative;
+  float: left;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid rgba(0, 0, 0, 0);
+  width: 100px;
+  height: 85px;
+}
+
+.circle-clear {
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  width: 65px;
+  height: 65px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid black;
+  border-radius: 50px;
+  box-shadow: inset 3px -4px 8px rgba(0,0,0,0.7);
+}
+
+.circle-red {
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  width: 65px;
+  height: 65px;
+  background-color: #ff3300;
+  border: 1px solid black;
+  border-radius: 50px;
+  box-shadow: inset 1px -3px 3px #661400;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+
+}
+
+.circle-black {
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  width: 65px;
+  height: 65px;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 50px;
+  box-shadow: inset 1px -3px 3px #333333;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+
+}
+
+.blue-leg {
+    background: -webkit-linear-gradient(left, rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);
+    z-index:-1;
+    width: 35px;
+    height: 575px;
+    border: 1px solid black;
+  
+}
+
+  #leg-left{
+  position: absolute;
+  
+  top: 102px;
+  left: 85px;
+  border-radius: 15px 0px 5px 5px;
+  box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
+  }
+
+  #leg-right{
+  position: absolute;
+ 
+  top: 102px;
+  left: 839px;
+  border-radius: 0px 15px 5px 5px;
+  box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
+  }
+
+ /*CSS for the scoreboard at Large Screen*/
+  .scoreBox {
+  position: relative;
+  height: 400px;
+  background-color: white;
+  border: 2px solid #ac7339;
+  border-radius: 4px; 
+  }
+
+  .scoreBox h2 {
+  font-size: 34px;
+  font-family: 'Lato', sans-serif;
+  text-decoration: underline;
+  }
+
+  .scoreBox p {
+  font-size: 48px;
+  font-family: 'Black Ops One', serif;
+  }
+
+  #redScore {
+  position: absolute;
+  padding-top: 15px;
+  width: 125px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0); 
+  text-align: center;
+  }
+
+  #blackScore {
+  position: absolute;
+  padding-top: 15px;
+  width: 125px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0); 
+  text-align: center;
+  }
+
+  #container-main {
+    margin-top: 40px;
+  }
+
+  #arrow{
+  position: absolute;
+  top: 20px;
+  left: -40px;
+  width:150px;
+}
+
+#dropPiece{
+  position: absolute;
+  background-color: #ff3300;
+  height: 65px;
+  width: 65px;
+  border: 12px solid #ff3300;
+  border-radius: 85px;
+  box-shadow: inset 0px 0px 10px #333333;
+  top: 160px;
+  left: -69px;
+}
+
+}
