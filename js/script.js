@@ -251,29 +251,34 @@ function displayWinner(winArray){
 function checkWidth() {
         var windowsize = $window.width();
         console.log(windowsize);
-        if (windowsize <= 1200) {
+        if (windowsize < 768) {
                   $("#dropPiece").data("uiDraggable").originalPosition = {
                   top : -20,
                   left : 61
                   };
-                }   
-                else {
-                  $("#dropPiece").data("uiDraggable").originalPosition = {
-                  top : 173,
-                  left : 447
-                  };
-        }  
+                } else if (windowsize < 1200){
+                    $("#dropPiece").data("uiDraggable").originalPosition = {
+                    top : -40,
+                    left : 260
+                    };
+                  } else {
+                      $("#dropPiece").data("uiDraggable").originalPosition = {
+                      top : 173,
+                      left : 447
+                      };
+                    }  
 }
 
 
 function checkWidthCSS() {
    var windowsize = $window.width();
-        if (windowsize <= 1200) {
-         $('#dropPiece').css({'top':'-20px','left':'61px'});   
-        }   
-        else if (windowsize > 1200) {
-         $('#dropPiece').css({'top':'173px','left':'447px'});   
-        } 
+        if (windowsize < 768) {
+          $('#dropPiece').css({'top':'-20px','left':'61px'});   
+        } else if (windowsize < 1200){
+            $('#dropPiece').css({'top':'-40px','left':'260px'}); 
+          } else {
+            $('#dropPiece').css({'top':'173px','left':'447px'});   
+            } 
 }
 
 
@@ -447,19 +452,9 @@ $('#clearbutton').click(function(){
     whoseTurn(count); 
     keepPlaying = true; 
     $("#dropPiece").draggable('enable');
-     if (windowsize <= 1200) {
-          $("#dropPiece").css({"display":"block"});
-          $("#highlightPiece").css({"display":"block"});
-          $("#arrowSmall").css({"display":"block"});
-        }   
-        else if (windowsize > 1200) {
-          $("#dropPiece").css({"display":"block"});
-          $("#highlightPiece").css({"display":"block"});  
-          $("#arrowLarge").css({"display":"block"});
-        } 
-    
-  
-       
+    $("#dropPiece").css({"display":"block"});
+    $("#highlightPiece").css({"display":"block"});
+    $("#arrow").css({"display":"block"});      
 });
 
 
@@ -643,8 +638,7 @@ function winning(winArray,player){
   displayWinner(winArray);
   $("#dropPiece").css({"display":"none"});
   $("#highlightPiece").css({"display":"none"});
-  $("#arrowSmall").css({"display":"none"});
-  $("#arrowLarge").css({"display":"none"});
+  $("#arrow").css({"display":"none"});
   playerScore(player);
   keepPlaying = false;
   $("#dropPiece").draggable('disable');

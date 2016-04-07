@@ -18,7 +18,7 @@ input,select{vertical-align:middle}
 
 body {
   background: url("../img/tablebg.jpg") no-repeat fixed; 
-  background-position: contain center top;
+  background-position: contain center bottom;
   
 }
 
@@ -33,18 +33,7 @@ label {
 
 
 
-@media (max-width: 1200px) {
-  #arrowLarge {
-    display: none;
-  }
-}
 
-@media (min-width: 1200px) {
-  #arrowSmall {
-    display: none;
-  }
-  
-}
 
 
 
@@ -88,7 +77,7 @@ label {
 
 }
 
-#arrowSmall {
+#arrow {
   width: 40px;
   height: 100%;
   position: absolute;
@@ -475,7 +464,180 @@ label {
 
 /*ipad width media queries*/
 @media (min-width: 768px) {
+
+  body {
+  background: url("../img/tabletbg.jpg") no-repeat fixed; 
+  background-position: contain center;
+  
+}
+
+#arrow {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -50px;
+  left: 140px;
+  background: url("../img/arrowmed.png");
+  background-size: cover;
+  z-index: -1;
+
+}
+
+
+#dropPiece{
+  z-index: 99;
+  position: absolute;
+  background-color: #ff3300;
+  height: 75px;
+  width: 75px;
+  border: 10px solid #ff3300;
+  border-radius: 85px;
+  box-shadow: inset 0px 0px 5px #333333;
+  top: -40px;
+  left: 260px;
+}
+
+#highlightPiece {
+  position: absolute;
+  top: -62px;
+  left: 238px;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 5px solid black;
+  border-radius: 100px;
+  z-index: -1;
+}
+
+
+
+  .drop-area{
+  margin: 0 auto;
+  margin-bottom: -22px;
+  width: 658px;
+  
+}
+
+.droppable {
+  width: 92px;
+  height: 80px;
+  float: left;
+}
+
+
+ #main-box {
+  position:absolute;
+  top: 102px;
+  left: 47px;
+  background: url("../img/framebgmed.png");
+  background-size: contain;
+  width: 651px;
+  height: 480px;
+  border: 3px solid black; 
+  
+}
+
+.entire-board {
+  position: relative;
+  margin: 0 auto;
+  width: 760px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+
  
+
+.eachSquare {
+  position: relative;
+  float: left;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid rgba(0, 0, 0, 0);
+  width: 92px;
+  height: 78px;
+}
+
+.circle-clear {
+  position: absolute;
+    left: 15%;
+    top: 10%;
+    width: 61px;
+    height: 61px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid black; 
+    border-radius: 50px;
+  border-radius: 50px;
+  box-shadow: inset 3px -4px 8px rgba(0,0,0,0.7);
+}
+
+.circle-red {
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  width: 65px;
+  height: 65px;
+  background-color: #ff3300;
+  border: 1px solid black;
+  border-radius: 50px;
+  box-shadow: inset 1px -3px 3px #661400;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+
+}
+
+.circle-black {
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  width: 65px;
+  height: 65px;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 50px;
+  box-shadow: inset 1px -3px 3px #333333;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+
+}
+
+.blue-leg {
+    background: -webkit-linear-gradient(left, rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);
+    z-index:0;
+    width: 35px;
+    height: 510px;
+    border: 1px solid black;
+  
+}
+
+  #leg-left{
+  position: absolute;
+  
+  top: 102px;
+  left: 13px;
+  border-radius: 15px 0px 5px 5px;
+  box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
+  }
+
+  #leg-right{
+  position: absolute;
+ 
+  top: 102px;
+  left: 697px;
+  border-radius: 0px 15px 5px 5px;
+  box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
+  }
+
+  #scoreSpacer{
+  width: 340px;
+  margin: 0 auto;
+  margin-top: 525px;
+  }
+ 
+
+  #container-main {
+    margin-top: 100px;
+  }
   
 
 }
@@ -484,8 +646,15 @@ label {
 /*desktop width media queries*/
 @media (min-width: 1200px) {
   
+body {
+  background: url("../img/tablebg.jpg") no-repeat fixed; 
+  background-position: contain center top;
+  
+}
 
-#arrowLarge {
+
+
+#arrow {
   width: 300px;
   height: 300px;
   position: absolute;
@@ -626,13 +795,6 @@ label {
   #container-main {
     margin-top: 5px;
   }
-
-  #arrow{
-  position: absolute;
-  top: 20px;
-  left: -40px;
-  width:150px;
-}
 
 #dropPiece{
   position: absolute;
