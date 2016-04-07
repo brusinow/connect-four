@@ -8,27 +8,15 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700,800">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Sigmar+One:400,700,500">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:400,700,500">
-  <link rel="stylesheet" href="css/remodal.css">
-  <link rel="stylesheet" href="css/remodal-default-theme.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="remodal" data-remodal-id="modal">
-  <button data-remodal-action="close" class="remodal-close"></button>
-  <h1>Connect Four</h1>
-  <p>
-    Rules: The goal is to create a string of four chips in-a-row (horizontally, vertically, or diagonally) before your opponent can do so. Would you like to play against another player or against the computer?
-  </p>
-  <br>
-  <button data-remodal-action="confirm" id="2PlayerButton" class="remodal-confirm">2-Player Game</button>
-  <button data-remodal-action="confirm" id="playerVsCpuButton" class="remodal-confirm">Player vs Computer</button>
-</div>
+<!-- <body data-vide-bg="video/coffeeshop.mp4"> -->
 
 
 
 
-<div class="remodal-bg">
 
   <div class="container" id="container-main">
     <section class="row">
@@ -116,11 +104,11 @@
       <div class="scoreBox">
         <div id="redScore">
           <h2>RED</h2>
-          <p id="redScoreValue">0</p>
+          <p class="" id="redScoreValue">0</p>
         </div>
         <div id="blackScore">
           <h2 id="blackScoreHeader">BLACK</h2>
-          <p id="blackScoreValue">0</p>
+          <p class="" id="blackScoreValue">0</p>
         </div>  
        <div class="button" id="clearScore">Clear Scoreboard</div>  
       </div>
@@ -164,7 +152,7 @@
 
 <div class="container" style="margin-top:40px;"></div> 
 
-</div>      
+     
 
     
 
@@ -173,8 +161,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="js/remodal.min.js"></script>
+<!-- <script src="js/jquery.vide.min.js"></script> -->
 <script src="js/script.js"></script>
 </body>
 </html>

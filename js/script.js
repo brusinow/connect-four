@@ -1,8 +1,8 @@
 
-// $(window).load(function() {
-// var options = { };
-// $('[data-remodal-id=modal]').remodal(options).open();
-// });
+
+
+
+
 var $window = $(window);
 var $pane = $('#pane1');
 var windowsize = $window.width();
@@ -35,6 +35,27 @@ clearSound.src = "sounds/clear.mp3";
 var winSound = new Audio();
 winSound.src = "sounds/win.mp3";
 
+
+$(function() {
+    var $window = $(window);
+    var width = $window.width();
+    var height = $window.height();
+
+    setInterval(function () {
+        if ((width != $window.width()) || (height != $window.height())) {
+            width = $window.width();
+            height = $window.height();
+            checkWidthCSS();
+            
+            console.log("resized!");
+        }
+    }, 300);
+});
+
+
+
+
+
 function whoseTurn(count){ 
     if (count % 2 === 0){
     console.log('whoseTurn returns red move');
@@ -50,7 +71,7 @@ function whoseTurn(count){
 
 function whichColumn(x){
   var y = 5;
-  if (keepPlaying && document.getElementById('playervscpu').checked){
+  if (keepPlaying && count <= 42 && document.getElementById('playervscpu').checked){
     do {
       console.log("cpu is checked");
       var dimensionChange = (7*y) + x;
@@ -79,7 +100,7 @@ function whichColumn(x){
     }
         while(y >= 0);
 
-  } else if (keepPlaying) {
+  } else if (keepPlaying && count <= 42) {
   do {
       var dimensionChange = (7*y) + x;
       
@@ -228,24 +249,15 @@ function displayWinner(winArray){
   for (i=0; i<winArray.length; i++){
     var winSquare = (winArray[i][0] * 7)+winArray[i][1];
     board[winSquare].className += " flash";
-    console.log("make an x");
   }
 }
-// start: function(event, ui){
-//            $("#highlightPiece").hide(); 
-//           }
 
 
-
- // revert : function(event, ui) {
-              
- //              $(this).data("uiDraggable").originalPosition = {
- //                  top : 12,
- //                  left : 13
- //              },
- //              return !event;
-          
- //          }
+// $window.onresize=function(){
+//   checkWidthCSS();
+//   checkWidth();
+//   console.log("resize");
+// };
 
 
 function checkWidth() {
@@ -289,7 +301,7 @@ $(function() {
             drag: function (event, ui) {
                 
         
-                $("#arrowSmall").removeClass( "imageflash" );
+                
                 $("#arrow").removeClass( "imageflash" );
                 $("#highlightPiece").removeClass( "borderflash" );
                  
@@ -301,6 +313,8 @@ $(function() {
             // on 2.x versions of jQuery use "ui-draggable"
             // $(this).data("ui-draggable")
             checkWidth();
+            $("#arrow").addClass( "imageflash" );
+            $("#highlightPiece").addClass( "borderflash" );
             // return boolean
             return !event;
             // that evaluate like this:
@@ -437,8 +451,8 @@ $(function() {
 
 $('#clearbutton').click(function(){
   clearSound.play();
-  $("#blackScoreValue").className = "";
-  $("#redScoreValue").className = "";
+  $("#blackScoreValue").removeClass("single-flash");
+  $("#redScoreValue").removeClass("single-flash");
     for(var y = 0; y < 6; y++) {
       for(var x = 0; x < 7; x++) {
       currentScore[y][x]="";
@@ -473,13 +487,13 @@ function playerScore(player){
   if (player === 'R'){
     console.log("scoreboard should add Red");
     redScore++;
-    $("#redScoreValue").className = "single-flash";
+    $("#redScoreValue").addClass("single-flash");
     $("#redScoreValue").text(redScore);
   }
   else if (player === 'B'){
     console.log("scoreboard should add Black");
     blackScore++;
-    $("#blackScoreValue").className = "single-flash";
+    $("#blackScoreValue").addClass("single-flash");
     $("#blackScoreValue").text(blackScore);
 
   } else {
