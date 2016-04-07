@@ -265,14 +265,15 @@ function displayWinner(winArray){
 
 function checkWidth() {
         var windowsize = $window.width();
-        if (windowsize <= 768) {
-                  $(this).data("uiDraggable").originalPosition = {
+        console.log(windowsize);
+        if (windowsize <= 992) {
+                  $("#dropPiece").data("uiDraggable").originalPosition = {
                   top : -20,
-                  left : 100
+                  left : 61
                   };
                 }   
                 else {
-                  $(this).data("uiDraggable").originalPosition = {
+                  $("#dropPiece").data("uiDraggable").originalPosition = {
                   top : 160,
                   left : -69
                   };
@@ -282,18 +283,26 @@ function checkWidth() {
 
 function checkWidthCSS() {
    var windowsize = $window.width();
-        if (windowsize <= 768) {
-         $('#dropPiece').css({'top':'-20px','left':'100px'});   
+        if (windowsize <= 992) {
+         $('#dropPiece').css({'top':'-20px','left':'61px'});   
         }   
-        else if (windowsize > 768) {
+        else if (windowsize > 992) {
          $('#dropPiece').css({'top':'160px','left':'-69px'});   
         } 
 }
 
+
+
+
 $(function() {
     $("#dropPiece").draggable({
             drag: function (event, ui) {
-               $("#arrow").removeClass( "imageflash" );
+                
+        
+                $("#arrowSmall").removeClass( "imageflash" );
+                $("#arrow").removeClass( "imageflash" );
+                $("#highlightPiece").removeClass( "borderflash" );
+                 
                console.log( "dragging" );
                }, 
                revert : function(event, ui) {
@@ -301,12 +310,12 @@ $(function() {
             // $(this).data("draggable")
             // on 2.x versions of jQuery use "ui-draggable"
             // $(this).data("ui-draggable")
-                checkWidth();
-                
+            checkWidth();
             // return boolean
-              return !event;
+            return !event;
             // that evaluate like this:
             // return event !== false ? false : true;
+        }
 });
 
     $('#1-drop').droppable({
@@ -319,9 +328,9 @@ $(function() {
                 console.log("dropped");
                 var x = 0;
                 whichColumn(x);
-              
-                $("#arrow").addClass( "imageflash" );
-               
+                $("#arrowSmall").addClass("imageflash" );
+                $("#arrow").addClass("imageflash" );
+                $("#highlightPiece").addClass("borderflash");
                 whoseTurn(count);
 
         }
@@ -336,9 +345,9 @@ $(function() {
                 console.log("dropped");
                 var x = 1;
                 whichColumn(x);
-              
-                $("#arrow").addClass( "imageflash" );
-             
+              $("#arrowSmall").addClass("imageflash" );
+                $("#arrow").addClass("imageflash" );
+                $("#highlightPiece").addClass("borderflash");
                 whoseTurn(count);
             }
     });
@@ -353,7 +362,9 @@ $(function() {
                 var x = 2;
                 whichColumn(x);
                 
-                $("#arrow").addClass( "imageflash" );
+                $("#arrowSmall").addClass("imageflash" );
+                $("#arrow").addClass("imageflash" );
+                $("#highlightPiece").addClass("borderflash");
                
                 whoseTurn(count);
             }    
@@ -369,7 +380,9 @@ $(function() {
                 var x = 3;
                 whichColumn(x);
                 
-                $("#arrow").addClass( "imageflash" );
+                $("#arrowSmall").addClass("imageflash" );
+                $("#arrow").addClass("imageflash" );
+                $("#highlightPiece").addClass("borderflash");
               
                 whoseTurn(count);
             }    
@@ -385,7 +398,9 @@ $(function() {
                 var x = 4;
                 whichColumn(x);
                 
-                $("#arrow").addClass( "imageflash" );
+                $("#arrowSmall").addClass("imageflash" );
+                $("#arrow").addClass("imageflash" );
+                $("#highlightPiece").addClass("borderflash");
               
                 whoseTurn(count);
             }    
@@ -401,7 +416,9 @@ $(function() {
                 var x = 5;
                 whichColumn(x);
                 
-                $("#arrow").addClass( "imageflash" );
+                $("#arrowSmall").addClass("imageflash" );
+                $("#arrow").addClass("imageflash" );
+                $("#highlightPiece").addClass("borderflash");
               
                 whoseTurn(count);
             }    
@@ -417,7 +434,9 @@ $(function() {
                 var x = 6;
                 whichColumn(x);
                 
-                $("#arrow").addClass( "imageflash" );
+                $("#arrowSmall").addClass("imageflash" );
+                $("#arrow").addClass("imageflash" );
+                $("#highlightPiece").addClass("borderflash");
           
                 whoseTurn(count);
       }

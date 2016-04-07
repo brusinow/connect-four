@@ -19,6 +19,7 @@ input,select{vertical-align:middle}
 body {
   background: url("../img/tablebg.jpg") no-repeat fixed; 
   background-position: contain center top;
+  
 }
 
 
@@ -32,13 +33,18 @@ label {
 
 
 
-@media (max-width: 900px) {
-    #arrow {
-        display: none;
-    }
+@media (max-width: 1200px) {
+  #arrowLarge {
+    display: none;
+  }
 }
 
-
+@media (min-width: 1200px) {
+  #arrowSmall {
+    display: none;
+  }
+  
+}
 
 
 
@@ -56,14 +62,14 @@ label {
 
 
 .button {
-    color: #555555;
+    color: black;
+    background-color: rgba(255, 255, 255, .5);
     font-family: 'Open Sans', sans-serif;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     margin: 4px 2px;
     cursor: pointer;
-    background: white;
     border: 1px solid #555555;
     border-radius: 28px;
     -webkit-transition-duration: 0.2s;
@@ -72,12 +78,24 @@ label {
 }
 
 .button:hover {
+    background-color: rgba(0, 0, 0, .5);
     color: white;
-    background-color: #555555;
+    
 }
 
 .free-floating-div{
   height: 50px;
+
+}
+
+#arrowSmall {
+  width: 40px;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 13px;
+  background: url("../img/arrowsmall.png");
+  background-size: cover;
 
 }
 
@@ -91,9 +109,20 @@ label {
   border-radius: 85px;
   box-shadow: inset 0px 0px 5px #333333;
   top: -20px;
-    left: 100px;
+    left: 61px;
 }
 
+#highlightPiece {
+  position: absolute;
+  top: -31px;
+  left: 50px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 5px solid black;
+  border-radius: 100px;
+  z-index: -1;
+}
 
 .drop-area{
   margin: 0 auto;
@@ -110,16 +139,15 @@ label {
 .entire-board {
   position: relative;
   margin: 0 auto;
-  width: 360px;
+  width: 340px;
   z-index:-2;
  
   background-color: rgba(0, 0, 0, 0);
 }
 
 #main-box {
- /* background: url("../img/frame2bg.png");*/
- /* background-size: cover;*/
-  background-color: yellow;
+  background: url("../img/framebgsmall.png");
+  
   /*position: relative;*/
   width: 294px;
   height: 224px;
@@ -143,10 +171,11 @@ label {
   top: 10%;
   width: 28px;
   height: 28px;
+  background-color: white;
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid black;
   border-radius: 50px;
-  box-shadow: inset 3px -4px 8px rgba(0,0,0,0.7);
+  box-shadow: inset 2px -3px 1px rgba(0,0,0,0.7);
 }
 
 .circle-red {
@@ -194,7 +223,7 @@ label {
 #leg-left{
   position: absolute;
   top: 45px;
-  left: 18px;
+  left: 7px;
   border-radius: 15px 0px 5px 5px;
   box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
 }
@@ -202,7 +231,7 @@ label {
 #leg-right{
   position: absolute;
   top: 45px;
-  left: 326px;
+  left: 316px;
   border-radius: 0px 15px 5px 5px;
   box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
 }
@@ -219,35 +248,42 @@ label {
   margin-bottom: 15px;
 }
 
-
+#scoreSpacer{
+  width: 340px;
+  margin: 0 auto;
+}
 
 
 .scoreBox {
   position: relative;
   margin: 0 auto;
   margin-top:25px;
-  width: 300px;
-  height: 150px;
-  background-color: white;
-  border: 2px solid #ac7339;
-  border-radius: 4px; 
+  width: 260px;
+  height: 140px;
+  background: url("../img/lightwoodbg.jpg");
+  background-size: cover;
+  border: 2px solid #333333;
+  border-radius: 10px; 
+  color: #222222;
 }
 
 .scoreBox h2 {
-  font-size: 30px;
-  font-family: 'Lato', sans-serif;
+  font-size: 28px;
+  font-family: 'Sigmar One', sans-serif;
   text-decoration: underline;
+  text-shadow: 3px 3px 5px rgba(0,0,0,0.5);
 }
 
   .scoreBox p {
-  font-size: 60px;
-  font-family: 'Black Ops One', serif;
+  font-size: 54px;
+  font-family: 'Sigmar One', serif;
+  text-shadow: 3px 3px 5px rgba(0,0,0,0.5);
 }
 
 #redScore {
   position: absolute;
   padding-top: 15px;
-  left: 45px;
+  left: 22px;
   background-color: rgba(0, 0, 0, 0); 
   text-align: center;
 }
@@ -257,7 +293,7 @@ label {
 #blackScore {
   position: absolute;
   padding-top: 15px;
-  left: 160px;
+  left: 131px;
   background-color: rgba(0, 0, 0, 0); 
   text-align: center;
 }
@@ -265,15 +301,16 @@ label {
 
 #clearScore {
     position: absolute;
-    top: 108px;
-    left: 45px;
-    padding: 4px 35px;
+    top: 98px;
+    left: 46px;
+    padding: 6px 14px;
     font-size: 14px;
+    font-weight: 700;
 }
 
 .below-scoreboard {
   position: relative;
-  width: 240px;
+  width: 235px;
   margin: 0 auto;
 }
 
@@ -285,10 +322,11 @@ label {
 }
 
 #clearbutton {
-    margin: 0 auto;
-    padding: 10px 70px;
+    margin-left: 15px;
+    padding: 10px 50px;
     font-size: 16px;
-
+    text-transform: uppercase;
+    font-weight: 800;
 }
 
 
@@ -300,16 +338,7 @@ label {
 
 
 
-#highlightPiece {
-  position: absolute;
-  top: 150px;
-  left: 100px;
-  width: 120px;
-  height: 120px;
-  background-color: white;
-  border: 8px solid black;
-  border-radius: 100px;
-}
+
 
 
 
@@ -335,21 +364,21 @@ label {
 }
 
 @-webkit-keyframes borderflash {
-    0% { border-color: none; background-color: none; }
-    50% { border-color: #ffffff; background-color: #ffffff; }
-    100% { border-color: none; background-color: none; }
+    0% { border-color: none;}
+    50% { border-color: rgba(0, 0, 0, 0);  }
+    100% { border-color: none;}
 }
 
 @-moz-keyframes borderflash {
-    0% { border-color: none; background-color: none; }
-    50% { border-color: #ffffff; background-color: #ffffff; }
-    100% { border-color: none; background-color: none; }
+    0% { border-color: none; }
+    50% { border-color: rgba(0, 0, 0, 0);  }
+    100% { border-color: none; }
 }
 
 @-ms-keyframes borderflash {
-    0% { border-color: none; background-color: none; }
-    50% { border-color: #ffffff; background-color: #ffffff; }
-    100% { border-color: none; background-color: none; }
+    0% { border-color: none; }
+    50% { border-color: rgba(0, 0, 0, 0);  }
+    100% { border-color: none; }
 }
 
 
@@ -412,21 +441,39 @@ label {
     100% { opacity:1; }
 }
 
-@media (min-width: 720px) {
+
+/*ipad width media queries*/
+@media (min-width: 768px) {
  
   
-  .scoreBox p {
-  font-size: 48px;
-  font-family: 'Black Ops One', serif;
-  }
+
 }
 
-@media (min-width: 900px) {
+
+/*desktop width media queries*/
+@media (min-width: 1200px) {
   
+
+#arrowLarge {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: -70px;
+  left: 200px;
+  background: url("../img/arrowlarge.png");
+  background-size: cover;
+  z-index: -1;
+
+}
+
+
+
+
 
   .drop-area{
   margin: 0 auto;
   width: 704px;
+  
 }
 
 .droppable {
@@ -436,17 +483,27 @@ label {
 }
 
 
-  #main-box {
- /* background: url("../img/frame2bg.png");*/
- /* background-size: cover;*/
-  background-color: yellow;
-  /*position: relative;*/
+ #main-box {
+  position:absolute;
+  top: 102px;
+  left: 47px;
+  background: url("../img/framebg.jpg");
+  background-size: contain;
   width: 706px;
   height: 520px;
-  border: 3px solid black;
-  margin: 0 auto;
+  border: 3px solid black; 
   
 }
+
+.entire-board {
+  position: relative;
+  margin: 0 auto;
+  width: 800px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+ 
 
 .eachSquare {
   position: relative;
@@ -503,8 +560,8 @@ label {
 
 .blue-leg {
     background: -webkit-linear-gradient(left, rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);
-    z-index:-1;
-    width: 35px;
+    z-index:0;
+    width: 45px;
     height: 575px;
     border: 1px solid black;
   
@@ -514,7 +571,7 @@ label {
   position: absolute;
   
   top: 102px;
-  left: 85px;
+  left: 2px;
   border-radius: 15px 0px 5px 5px;
   box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
   }
@@ -523,51 +580,20 @@ label {
   position: absolute;
  
   top: 102px;
-  left: 839px;
+  left: 753px;
   border-radius: 0px 15px 5px 5px;
   box-shadow: 0px 5px 7px rgba(0,0,0,0.3);
   }
 
- /*CSS for the scoreboard at Large Screen*/
-  .scoreBox {
-  position: relative;
-  height: 400px;
-  background-color: white;
-  border: 2px solid #ac7339;
-  border-radius: 4px; 
+  #scoreSpacer{
+  width: 340px;
+  margin: 0 auto;
+  margin-top: 300px;
   }
-
-  .scoreBox h2 {
-  font-size: 34px;
-  font-family: 'Lato', sans-serif;
-  text-decoration: underline;
-  }
-
-  .scoreBox p {
-  font-size: 48px;
-  font-family: 'Black Ops One', serif;
-  }
-
-  #redScore {
-  position: absolute;
-  padding-top: 15px;
-  width: 125px;
-  height: 150px;
-  background-color: rgba(0, 0, 0, 0); 
-  text-align: center;
-  }
-
-  #blackScore {
-  position: absolute;
-  padding-top: 15px;
-  width: 125px;
-  height: 150px;
-  background-color: rgba(0, 0, 0, 0); 
-  text-align: center;
-  }
+ 
 
   #container-main {
-    margin-top: 40px;
+    margin-top: 5px;
   }
 
   #arrow{
@@ -580,13 +606,25 @@ label {
 #dropPiece{
   position: absolute;
   background-color: #ff3300;
-  height: 65px;
-  width: 65px;
+  height: 85px;
+  width: 85px;
   border: 12px solid #ff3300;
   border-radius: 85px;
   box-shadow: inset 0px 0px 10px #333333;
-  top: 160px;
-  left: -69px;
+  top: 173px;
+  left: 447px;
+}
+
+#highlightPiece {
+  position: absolute;
+  top: 140px;
+  left: 415px;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 13px solid black;
+  border-radius: 100px;
+  z-index: -1;
 }
 
 }
