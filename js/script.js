@@ -5,6 +5,7 @@
 // });
 var $window = $(window);
 var $pane = $('#pane1');
+var windowsize = $window.width();
 
 var currentScore =  [ ["","","","","","",""],
                       ["","","","","","",""],
@@ -134,11 +135,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
       if (needFour >= 4) { 
       console.log(winArray);
       console.log("win horizontal");
-      displayWinner(winArray);
-      playerScore(player);
-      keepPlaying = false;
-      $("#dropPiece").draggable('disable');
-      winSound.play();
+      winning(winArray,player);
       return true; 
       }
 
@@ -164,11 +161,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
 
       if (needFour >= 4) { 
       console.log("win vertical");
-      displayWinner(winArray);
-      playerScore(player);
-      keepPlaying = false;
-      $("#dropPiece").draggable('disable');
-      winSound.play();
+      winning(winArray,player);
       return true; 
       }
 
@@ -195,11 +188,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
 
       if (needFour >= 4) { 
       console.log("win diag descending");
-      displayWinner(winArray);
-      playerScore(player);
-      keepPlaying = false;
-      $("#dropPiece").draggable('disable');
-      winSound.play();
+      winning(winArray,player);
       return true; 
       }
 
@@ -225,11 +214,7 @@ function getWinner(lastPieceY, lastPieceX, player) {
 
       if (needFour >= 4) { 
       console.log("win diag ascending");
-      displayWinner(winArray);
-      playerScore(player);
-      keepPlaying = false;
-      $("#dropPiece").draggable('disable');
-      winSound.play();
+      winning(winArray,player);
       return true; 
       }
 
@@ -266,7 +251,7 @@ function displayWinner(winArray){
 function checkWidth() {
         var windowsize = $window.width();
         console.log(windowsize);
-        if (windowsize <= 992) {
+        if (windowsize <= 1200) {
                   $("#dropPiece").data("uiDraggable").originalPosition = {
                   top : -20,
                   left : 61
@@ -274,8 +259,8 @@ function checkWidth() {
                 }   
                 else {
                   $("#dropPiece").data("uiDraggable").originalPosition = {
-                  top : 160,
-                  left : -69
+                  top : 173,
+                  left : 447
                   };
         }  
 }
@@ -283,11 +268,11 @@ function checkWidth() {
 
 function checkWidthCSS() {
    var windowsize = $window.width();
-        if (windowsize <= 992) {
+        if (windowsize <= 1200) {
          $('#dropPiece').css({'top':'-20px','left':'61px'});   
         }   
-        else if (windowsize > 992) {
-         $('#dropPiece').css({'top':'160px','left':'-69px'});   
+        else if (windowsize > 1200) {
+         $('#dropPiece').css({'top':'173px','left':'447px'});   
         } 
 }
 
@@ -447,19 +432,34 @@ $(function() {
 
 $('#clearbutton').click(function(){
   clearSound.play();
-  for(var y = 0; y < 6; y++) {
-    for(var x = 0; x < 7; x++) {
-    currentScore[y][x]="";
-  }
+  $("#blackScoreValue").className = "";
+  $("#redScoreValue").className = "";
+    for(var y = 0; y < 6; y++) {
+      for(var x = 0; x < 7; x++) {
+      currentScore[y][x]="";
+      }
     }
 
-  for (var i=0; i<board.length;i++) {
-  board[i].className = "eachCircle circle-clear";
-  }
-   count = 0;      
-   whoseTurn(count); 
-   keepPlaying = true; 
-   $("#dropPiece").draggable('enable');     
+    for (var i=0; i<board.length;i++) {
+    board[i].className = "eachCircle circle-clear";
+    }
+    count = 0;      
+    whoseTurn(count); 
+    keepPlaying = true; 
+    $("#dropPiece").draggable('enable');
+     if (windowsize <= 1200) {
+          $("#dropPiece").css({"display":"block"});
+          $("#highlightPiece").css({"display":"block"});
+          $("#arrowSmall").css({"display":"block"});
+        }   
+        else if (windowsize > 1200) {
+          $("#dropPiece").css({"display":"block"});
+          $("#highlightPiece").css({"display":"block"});  
+          $("#arrowLarge").css({"display":"block"});
+        } 
+    
+  
+       
 });
 
 
@@ -478,12 +478,15 @@ function playerScore(player){
   if (player === 'R'){
     console.log("scoreboard should add Red");
     redScore++;
+    $("#redScoreValue").className = "single-flash";
     $("#redScoreValue").text(redScore);
   }
   else if (player === 'B'){
     console.log("scoreboard should add Black");
     blackScore++;
+    $("#blackScoreValue").className = "single-flash";
     $("#blackScoreValue").text(blackScore);
+
   } else {
     console.log("scoreboard failing");
     return false;
@@ -624,33 +627,6 @@ playerBestArray = [lastPieceX];
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $("#2PlayerButton").click(function(){
    $("#2player").prop("checked", true)   
 });
@@ -660,7 +636,20 @@ $("#playerVsCpuButton").click(function(){
 });
 
 
+// HELPER FUNCTIONS
 
+function winning(winArray,player){
+  winSound.play();
+  displayWinner(winArray);
+  $("#dropPiece").css({"display":"none"});
+  $("#highlightPiece").css({"display":"none"});
+  $("#arrowSmall").css({"display":"none"});
+  $("#arrowLarge").css({"display":"none"});
+  playerScore(player);
+  keepPlaying = false;
+  $("#dropPiece").draggable('disable');
+   
+}
 
 
 

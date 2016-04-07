@@ -412,6 +412,37 @@ label {
     100% { background-color: none; }
 }
 
+
+.single-flash {
+  -moz-animation: flash 1s ease-out;
+  -moz-animation-iteration-count: 1;
+
+  -webkit-animation: flash 1s ease-out;
+  -webkit-animation-iteration-count: 1;
+
+  -ms-animation: flash 1s ease-out;
+  -ms-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes flash {
+    0% { background-color: none; }
+    50% { background-color: #ffffff; }
+    100% { background-color: none; }
+}
+
+@-moz-keyframes flash {
+    0% { background-color: none; }
+    50% { background-color: #ffffff; }
+    100% { background-color: none; }
+}
+
+@-ms-keyframes flash {
+    0% { background-color: none; }
+    50% { background-color: #ffffff; }
+    100% { background-color: none; }
+}
+
+
 .imageflash {
   -moz-animation: imageflash 1s ease-out;
   -moz-animation-iteration-count: 1000;
@@ -487,8 +518,8 @@ label {
   position:absolute;
   top: 102px;
   left: 47px;
-  background: url("../img/framebg.jpg");
-  background-size: contain;
+  background: url("../img/framebglarge.png");
+  background-size: cover;
   width: 706px;
   height: 520px;
   border: 3px solid black; 
