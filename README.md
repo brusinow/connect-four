@@ -1,4 +1,4 @@
-# project-1
+# Project #1: The Game
 
 "Connect Four" Web Based Game by Brent Rusinow
 
