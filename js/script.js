@@ -334,7 +334,6 @@ $(function() {
                 console.log("dropped");
                 var x = 0;
                 whichColumn(x);
-                $("#arrowSmall").addClass("imageflash" );
                 $("#arrow").addClass("imageflash" );
                 $("#highlightPiece").addClass("borderflash");
                 whoseTurn(count);
@@ -351,7 +350,6 @@ $(function() {
                 console.log("dropped");
                 var x = 1;
                 whichColumn(x);
-              $("#arrowSmall").addClass("imageflash" );
                 $("#arrow").addClass("imageflash" );
                 $("#highlightPiece").addClass("borderflash");
                 whoseTurn(count);
@@ -367,11 +365,8 @@ $(function() {
                 console.log("dropped");
                 var x = 2;
                 whichColumn(x);
-                
-                $("#arrowSmall").addClass("imageflash" );
                 $("#arrow").addClass("imageflash" );
-                $("#highlightPiece").addClass("borderflash");
-               
+                $("#highlightPiece").addClass("borderflash");  
                 whoseTurn(count);
             }    
     });
@@ -385,11 +380,8 @@ $(function() {
                 console.log("dropped");
                 var x = 3;
                 whichColumn(x);
-                
-                $("#arrowSmall").addClass("imageflash" );
                 $("#arrow").addClass("imageflash" );
                 $("#highlightPiece").addClass("borderflash");
-              
                 whoseTurn(count);
             }    
     });
@@ -402,12 +394,10 @@ $(function() {
                 moveSound.play();
                 console.log("dropped");
                 var x = 4;
-                whichColumn(x);
-                
+                whichColumn(x);  
                 $("#arrowSmall").addClass("imageflash" );
                 $("#arrow").addClass("imageflash" );
                 $("#highlightPiece").addClass("borderflash");
-              
                 whoseTurn(count);
             }    
     });
@@ -421,11 +411,8 @@ $(function() {
                 console.log("dropped");
                 var x = 5;
                 whichColumn(x);
-                
-                $("#arrowSmall").addClass("imageflash" );
                 $("#arrow").addClass("imageflash" );
                 $("#highlightPiece").addClass("borderflash");
-              
                 whoseTurn(count);
             }    
     });
@@ -438,12 +425,10 @@ $(function() {
                 moveSound.play();
                 console.log("dropped");
                 var x = 6;
-                whichColumn(x);
-                
+                whichColumn(x); 
                 $("#arrowSmall").addClass("imageflash" );
                 $("#arrow").addClass("imageflash" );
                 $("#highlightPiece").addClass("borderflash");
-          
                 whoseTurn(count);
       }
 
