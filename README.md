@@ -1,5 +1,7 @@
 # Project #1: The Game
 
+Play it here: http://brusinow.github.io/project-1/
+
 "Connect Four" Web Based Game by Brent Rusinow
 
 Rules: Each turn you have a choice of which column you can drop a chip into. The objective is to complete a string of four of your color of chip before your opponent.  Winning combinations can be completed horizontally, vertically, or diagonally.
@@ -14,6 +16,7 @@ Room for improvement:
 -Adding a video background for large screen size (and toggling it off for smaller screen sizes) 
 -Potentially making another media query for smaller phones (iPhone SE, iPhone 5, etc
 -Improving the AI to include a more attack-based strategy, research minimax application.
+-Trying to DRY out some of my droppable functions (7 very similar functions for the 7 columns)
 
 
 
