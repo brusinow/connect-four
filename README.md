@@ -8,6 +8,8 @@ Rules: Alternating turns, each player has a choice of which column they can drop
 
 Gameplay: To play, choose your game mode (2-player or player-vs-computer) and then drag the current piece to the area just above the column of your choosing. After dropping your piece, the subsequent piece will repopulate inside the starting area. When game is completed, push the "NEW GAME" button and the board will be reset.
 
+Installation: use "git clone" to copy to your computer and then open in your favorite browser.
+
 Technologies used: Javascript, JQuery, JQuery UI, JQuery UI Touch Punch, Bootstrap, and Google Fonts.
 
 Things to fix: On mobile devices the sound for dropping a chip is not firing - after reading up on it, this looks like an issue with the sound not being attached to a touchEnd event and seems to be an iOS9 specific issue (apparently wasn't an issue on iOS8).
