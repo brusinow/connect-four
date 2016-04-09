@@ -4,11 +4,11 @@ Play it here: http://brusinow.github.io/project-1/
 
 "Connect Four" Web Based Game by Brent Rusinow
 
+Installation: use "git clone" to copy to your computer and then open in your preferred browser.
+
 Rules: Alternating turns, each player has a choice of which column they can drop a chip into. The objective is to complete a string of four of your color of chip before the other player.  Winning combinations can be completed horizontally, vertically, or diagonally.
 
 Gameplay: To play, choose your game mode (2-player or player-vs-computer) and then drag the current piece to the area just above the column of your choosing. After dropping your piece, the subsequent piece will repopulate inside the starting area. When game is completed, push the "NEW GAME" button and the board will be reset.
-
-Installation: use "git clone" to copy to your computer and then open in your favorite browser.
 
 Technologies used: Javascript, JQuery, JQuery UI, JQuery UI Touch Punch, Bootstrap, and Google Fonts.
 
